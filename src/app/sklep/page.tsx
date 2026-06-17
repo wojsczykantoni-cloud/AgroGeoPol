@@ -141,7 +141,7 @@ export default function SklepPage() {
               <div className="md:w-72 md:flex-shrink-0">
                 <img
                   src={cat.image}
-                  alt={cat.title}
+                  alt={cat.headline}
                   className="w-full h-56 md:h-full object-cover"
                   style={{ borderRadius: "12px 0 0 12px" }}
                 />
