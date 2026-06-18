@@ -42,7 +42,7 @@ export default function Hero() {
       <div className="relative z-20 container mx-auto px-4 flex flex-col items-center text-center mt-16">
         {/* Badge */}
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm mb-8 animate-fade-in" style={{ animationDelay: '100ms' }}>
-          <span className="w-2 h-2 rounded-full bg-[#7AB83C] animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-[#8DC432] animate-pulse"></span>
           <span className="text-sm font-medium tracking-wide text-gray-200">
             🇬🇪 Eksport bezpośredni z Gruzji
           </span>
@@ -51,7 +51,7 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
           Smak Kaukazu
-          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#7AB83C] to-[#F07030]">
+          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#8DC432] to-[#D4C478]">
             prosto do Twojej firmy.
           </span>
         </h1>
@@ -65,13 +65,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Link
             href="/sklep"
-            className="px-8 py-4 bg-gradient-to-r from-[#F07030] to-[#C85020] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-4 bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
             Przeglądaj ofertę
           </Link>
           <Link
             href="/kontakt"
-            className="px-8 py-4 bg-transparent border border-[#7AB83C] text-[#7AB83C] font-semibold rounded-lg hover:bg-[#7AB83C]/10 transition-all duration-300 backdrop-blur-sm"
+            className="px-8 py-4 bg-transparent border border-[#8DC432] text-[#8DC432] font-semibold rounded-lg hover:bg-[#8DC432]/10 transition-all duration-300 backdrop-blur-sm"
           >
             Skontaktuj się
           </Link>
@@ -88,12 +88,12 @@ export default function Hero() {
         <div className="container mx-auto px-4 h-14 flex items-center justify-between text-sm text-gray-300">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-              <MapPin size={16} className="text-[#7AB83C]" />
+              <MapPin size={16} className="text-[#8DC432]" />
               <span>Gruzja / Dostawy do Polski i UE</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={16} className="text-[#F07030]" />
+              <Phone size={16} className="text-[#D4C478]" />
               <span>+995 555 56 83 02</span>
             </a>
           </div>

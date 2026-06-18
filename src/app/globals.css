@@ -41,9 +41,9 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --color-gold: #F07030;
-  --color-gold-light: #F09060;
-  --color-green-accent: #7AB83C;
+  --color-gold: #D4C478;
+  --color-gold-light: #E0D498;
+  --color-green-accent: #8DC432;
   --color-dark-bg: #111111;
   --color-dark-card: #1E1E1E;
   --color-dark-section: #1A1A1A;
@@ -56,28 +56,28 @@
   --card-foreground: #F5F5F5;
   --popover: #1E1E1E;
   --popover-foreground: #F5F5F5;
-  --primary: #F07030;
-  --primary-foreground: #FFFFFF;
-  --secondary: #7AB83C;
-  --secondary-foreground: #FFFFFF;
+  --primary: #D4C478;
+  --primary-foreground: #111111;
+  --secondary: #8DC432;
+  --secondary-foreground: #111111;
   --muted: #1A1A1A;
   --muted-foreground: #909090;
-  --accent: #F07030;
-  --accent-foreground: #FFFFFF;
+  --accent: #D4C478;
+  --accent-foreground: #111111;
   --destructive: #c0392b;
   --destructive-foreground: #FFFFFF;
   --border: #2A2A2A;
   --input: #2A2A2A;
-  --ring: #F07030;
+  --ring: #D4C478;
   --radius: 0.625rem;
   --sidebar: #1E1E1E;
   --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #F07030;
-  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-primary: #D4C478;
+  --sidebar-primary-foreground: #111111;
   --sidebar-accent: #1A1A1A;
   --sidebar-accent-foreground: #F5F5F5;
   --sidebar-border: #2A2A2A;
-  --sidebar-ring: #F07030;
+  --sidebar-ring: #D4C478;
 }
 
 @layer base {
@@ -96,7 +96,7 @@
 
 @layer utilities {
   .text-gold {
-    color: #F07030;
+    color: #D4C478;
   }
   .bg-dark-card {
     background-color: #1E1E1E;
@@ -105,17 +105,17 @@
     background-color: #1A1A1A;
   }
   .border-gold {
-    border-color: #F07030;
+    border-color: #D4C478;
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, #7AB83C 0%, #F07030 60%, #7AB83C 100%);
+    background: linear-gradient(135deg, #8DC432 0%, #D4C478 60%, #8DC432 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .btn-gold {
-    background: linear-gradient(135deg, #F07030 0%, #C85020 50%, #F07030 100%);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #D4C478 0%, #B8A860 50%, #D4C478 100%);
+    color: #111111;
     font-weight: 600;
     transition: opacity 0.2s, transform 0.2s;
   }
@@ -128,7 +128,7 @@
     border: 1px solid #2A2A2A;
   }
   .card-dark:hover {
-    border-color: #F0703060;
+    border-color: #D4C47860;
   }
   .section-border-top {
     border-top: 1px solid #2A2A2A;

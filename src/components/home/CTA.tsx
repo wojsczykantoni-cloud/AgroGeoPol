@@ -11,9 +11,9 @@ export default function CTA() {
         <AnimateOnScroll animation="scale-in">
           <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#1E1E1E] to-[#181818] border border-[#2A2A2A] p-10 sm:p-16">
             {/* Decorative glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[#F07030] to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-[#D4C478] to-transparent" />
 
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-4">
             Zacznij współpracę
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#F5F5F5] mb-4">
@@ -26,16 +26,16 @@ export default function CTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#kontakt"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-semibold btn-gold shadow-lg shadow-[#F07030]/20"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-semibold btn-gold shadow-lg shadow-[#D4C478]/20"
             >
               Napisz do nas
               <ArrowRight size={18} />
             </Link>
             <a
               href="tel:+995555568302"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-semibold border border-[#2A2A2A] text-[#F5F5F5] hover:border-[#F07030]/50 hover:bg-[#F07030]/5 transition-all"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-base font-semibold border border-[#2A2A2A] text-[#F5F5F5] hover:border-[#D4C478]/50 hover:bg-[#D4C478]/5 transition-all"
             >
-              <Phone size={18} className="text-[#F07030]" />
+              <Phone size={18} className="text-[#D4C478]" />
               +995 555 56 83 02
             </a>
           </div>

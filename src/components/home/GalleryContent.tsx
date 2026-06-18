@@ -66,7 +66,7 @@ export default function GalleryContent() {
             onClick={() => setActiveCategory(cat)}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === cat
-                ? 'bg-[#F07030] text-white shadow-[0_0_15px_rgba(240,112,48,0.3)]'
+                ? 'bg-[#D4C478] text-white shadow-[0_0_15px_rgba(240,112,48,0.3)]'
                 : 'bg-[#1E1E1E] text-gray-400 hover:bg-[#2A2A2A] hover:text-white border border-[#2A2A2A]'
             }`}
           >
@@ -92,9 +92,9 @@ export default function GalleryContent() {
               />
               
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-2 border-transparent group-hover:border-[#F07030]/50 rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-2 border-transparent group-hover:border-[#D4C478]/50 rounded-xl">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-xs text-[#F07030] font-semibold tracking-wider uppercase mb-2 block">
+                  <span className="text-xs text-[#D4C478] font-semibold tracking-wider uppercase mb-2 block">
                     {item.category}
                   </span>
                   <h3 className="text-white font-medium text-lg leading-tight flex items-center justify-between">
@@ -149,7 +149,7 @@ export default function GalleryContent() {
             
             {/* Caption */}
             <div className="absolute bottom-[-2rem] left-0 w-full text-center pointer-events-none">
-              <p className="text-[#F07030] text-sm uppercase tracking-wider font-semibold mb-1">
+              <p className="text-[#D4C478] text-sm uppercase tracking-wider font-semibold mb-1">
                 {filteredItems[currentImageIndex].category}
               </p>
               <h2 className="text-white text-xl font-light">

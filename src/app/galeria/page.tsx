@@ -12,7 +12,7 @@ export default function GalleryPage() {
       <div className="container mx-auto px-4">
         {/* Header section */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-4">
             Nasza Galeria
           </p>
           <h1 className="text-4xl md:text-5xl font-light text-[#F5F5F5] font-serif mb-6">

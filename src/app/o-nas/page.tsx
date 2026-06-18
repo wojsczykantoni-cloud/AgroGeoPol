@@ -41,7 +41,7 @@ export default function ONasPage() {
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-[#181818] to-[#111111]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-4">
             O nas
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-[#F5F5F5] mb-6">
@@ -59,7 +59,7 @@ export default function ONasPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-4">
+              <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-4">
                 Nasza historia
               </p>
               <h2 className="text-3xl font-bold text-[#F5F5F5] mb-6">
@@ -94,7 +94,7 @@ export default function ONasPage() {
       <section className="py-20 bg-[#1A1A1A] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">
+            <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">
               Nasze wartości
             </p>
             <h2 className="text-3xl font-bold text-[#F5F5F5]">
@@ -104,8 +104,8 @@ export default function ONasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <div key={v.title} className="card-dark rounded-xl p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-[#F07030]/10 flex items-center justify-center mx-auto mb-4">
-                  <v.icon size={22} className="text-[#F07030]" />
+                <div className="w-12 h-12 rounded-xl bg-[#D4C478]/10 flex items-center justify-center mx-auto mb-4">
+                  <v.icon size={22} className="text-[#D4C478]" />
                 </div>
                 <h3 className="text-base font-semibold text-[#F5F5F5] mb-2">
                   {v.title}
@@ -122,7 +122,7 @@ export default function ONasPage() {
       {/* Team placeholder */}
       <section className="py-20 bg-[#111111] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">
             Zespół
           </p>
           <h2 className="text-3xl font-bold text-[#F5F5F5] mb-4">
@@ -131,12 +131,12 @@ export default function ONasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Marcin Zaremba */}
             <div className="card-dark rounded-2xl p-8 flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#F07030]/20 to-[#7AB83C]/20 border border-[#2A2A2A] flex items-center justify-center text-3xl">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#D4C478]/20 to-[#8DC432]/20 border border-[#2A2A2A] flex items-center justify-center text-3xl">
                 👤
               </div>
               <div>
                 <p className="font-semibold text-[#F5F5F5] text-center">Marcin Zaremba</p>
-                <p className="text-sm text-[#F07030] text-center">Założyciel</p>
+                <p className="text-sm text-[#D4C478] text-center">Założyciel</p>
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export default function ONasPage() {
               </div>
               <div>
                 <p className="font-semibold text-[#F5F5F5] text-center">Szymon Wojsczyk</p>
-                <p className="text-sm text-[#F07030] text-center">Współzałożyciel</p>
+                <p className="text-sm text-[#D4C478] text-center">Współzałożyciel</p>
               </div>
             </div>
           </div>

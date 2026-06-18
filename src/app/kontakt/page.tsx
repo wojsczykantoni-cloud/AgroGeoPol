@@ -13,10 +13,10 @@ const actions = [
     value: "+995 555 56 83 02",
     sub: "Odbieramy pon–pt 8:00–18:00",
     href: "tel:+995555568302",
-    color: "from-[#7AB83C]/20 to-[#7AB83C]/5",
-    border: "hover:border-[#F07030]/40",
-    iconColor: "text-[#F07030]",
-    iconBg: "bg-[#7AB83C]/20",
+    color: "from-[#8DC432]/20 to-[#8DC432]/5",
+    border: "hover:border-[#D4C478]/40",
+    iconColor: "text-[#D4C478]",
+    iconBg: "bg-[#8DC432]/20",
     cta: "Połącz teraz",
   },
   {
@@ -37,10 +37,10 @@ const actions = [
     value: "kontakt@agrogeopol.pl",
     sub: "Odpowiadamy w ciągu 24h",
     href: "mailto:kontakt@agrogeopol.pl",
-    color: "from-[#F07030]/10 to-[#F07030]/5",
-    border: "hover:border-[#F07030]/40",
-    iconColor: "text-[#F07030]",
-    iconBg: "bg-[#F07030]/10",
+    color: "from-[#D4C478]/10 to-[#D4C478]/5",
+    border: "hover:border-[#D4C478]/40",
+    iconColor: "text-[#D4C478]",
+    iconBg: "bg-[#D4C478]/10",
     cta: "Wyślij e-mail",
   },
 ];
@@ -57,7 +57,7 @@ export default function KontaktPage() {
       {/* Header */}
       <section className="py-12 bg-gradient-to-b from-[#181818] to-[#111111]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest">Kontakt</p>
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest">Kontakt</p>
         </div>
       </section>
 
@@ -94,8 +94,8 @@ export default function KontaktPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {details.map((d) => (
               <div key={d.label} className="card-dark rounded-xl p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#F07030]/10 flex items-center justify-center shrink-0">
-                  <d.icon size={18} className="text-[#F07030]" />
+                <div className="w-10 h-10 rounded-lg bg-[#D4C478]/10 flex items-center justify-center shrink-0">
+                  <d.icon size={18} className="text-[#D4C478]" />
                 </div>
                 <div>
                   <p className="text-xs text-[#909090] mb-0.5">{d.label}</p>

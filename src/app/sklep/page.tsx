@@ -19,7 +19,7 @@ const sections = [
         title: "Świeże owoce",
         subtitle: "Sezonowo z Gruzji",
         tag: "Świeże",
-        tagColor: "bg-[#7AB83C]/20 text-[#7AB83C]",
+        tagColor: "bg-[#8DC432]/20 text-[#8DC432]",
         headline: "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki",
         description: "Sezonowe owoce gruzińskie najwyższej jakości — prosto z sadów Kaukazu. Bezpośredni eksport, bez pośredników.",
         features: ["Śliwki i brzoskwinie", "Wiśnie i czereśnie", "Jabłka i gruszki", "Dostawa hurtowa"],
@@ -32,7 +32,7 @@ const sections = [
         title: "Świeże warzywa",
         subtitle: "Sezonowo z Gruzji",
         tag: "Świeże",
-        tagColor: "bg-[#7AB83C]/20 text-[#7AB83C]",
+        tagColor: "bg-[#8DC432]/20 text-[#8DC432]",
         headline: "Pomidory, papryka, ogórki, kukurydza",
         description: "Świeże warzywa z gruzińskich upraw — pomidory, papryka, ogórki, kukurydza. Dostępne sezonowo w dostawach hurtowych.",
         features: ["Pomidory i papryka", "Ogórki i kukurydza", "Sezonowa dostępność", "Dostawy hurtowe B2B"],
@@ -113,10 +113,10 @@ export default function SklepPage() {
       {/* Header */}
       <section className="py-14 bg-gradient-to-b from-[#181818] to-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">Oferta</p>
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">Oferta</p>
           <h1 className="text-4xl md:text-5xl font-light text-[#F5F5F5] font-serif leading-tight mb-6">
             Nasza oferta<br />
-            <span className="text-[#F07030] italic font-normal">Owoce i warzywa z Gruzji</span>
+            <span className="text-[#D4C478] italic font-normal">Owoce i warzywa z Gruzji</span>
           </h1>
           <p className="text-[#909090] text-base max-w-2xl leading-relaxed">
             Dostarczamy produkty prosto z Gruzji — kraju o wyjątkowym klimacie i tradycjach rolniczych. Oferujemy zarówno świeże dostawy sezonowe, jak i mrożonki IQF na skalę hurtową.
@@ -157,7 +157,7 @@ export default function SklepPage() {
         <section key={section.id} id={section.id} className="py-12" style={{ scrollMarginTop: "8rem" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-xs font-semibold text-[#F07030] uppercase tracking-widest">{section.label}</span>
+              <span className="text-xs font-semibold text-[#D4C478] uppercase tracking-widest">{section.label}</span>
               <div className="flex-1 h-px bg-[#2A2A2A]" />
             </div>
             <div className="flex flex-col gap-5">
@@ -165,7 +165,7 @@ export default function SklepPage() {
                 <div
                   key={cat.id}
                   id={cat.id}
-                  className="card-dark rounded-2xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:border-[#F07030]/20"
+                  className="card-dark rounded-2xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:border-[#D4C478]/20"
                   style={{ scrollMarginTop: "8rem" }}
                 >
                   <div className="md:w-72 md:flex-shrink-0">
@@ -175,19 +175,19 @@ export default function SklepPage() {
                     <div>
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${cat.tagColor}`}>{cat.tag}</span>
                       <h2 className="text-xl md:text-2xl font-bold text-[#F5F5F5]">{cat.emoji} {cat.headline}</h2>
-                      <p className="text-sm text-[#F07030] font-medium mt-1">{cat.subtitle}</p>
+                      <p className="text-sm text-[#D4C478] font-medium mt-1">{cat.subtitle}</p>
                     </div>
                     <p className="text-[#909090] text-sm leading-relaxed">{cat.description}</p>
                     <div className="grid grid-cols-2 gap-2">
                       {cat.features.map((f) => (
                         <div key={f} className="flex items-center gap-2 text-sm text-[#909090]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#F07030] shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#D4C478] shrink-0" />
                           {f}
                         </div>
                       ))}
                     </div>
                     <div className="mt-auto pt-4 border-t border-[#2A2A2A]">
-                      <Link href="/kontakt" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#F07030] to-[#C85020] text-black no-underline hover:opacity-90 transition-all duration-200">
+                      <Link href="/kontakt" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-black no-underline hover:opacity-90 transition-all duration-200">
                         {cat.cta} →
                       </Link>
                     </div>
@@ -203,20 +203,20 @@ export default function SklepPage() {
       <section className="py-16 bg-[#181818] border-t border-[#2A2A2A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">Jak zamówić?</p>
+            <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">Jak zamówić?</p>
             <h2 className="text-2xl md:text-3xl font-light text-[#F5F5F5] font-serif">Proste jak 3 kroki</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((step) => (
               <div key={step.num} className="card-dark rounded-2xl p-7 flex flex-col gap-3">
-                <span className="text-4xl font-bold text-[#F07030]/30">{step.num}</span>
+                <span className="text-4xl font-bold text-[#D4C478]/30">{step.num}</span>
                 <h3 className="text-lg font-bold text-[#F5F5F5]">{step.title}</h3>
                 <p className="text-sm text-[#909090] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/kontakt" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold bg-gradient-to-r from-[#F07030] to-[#C85020] text-black no-underline hover:opacity-90 transition-all duration-200">
+            <Link href="/kontakt" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-black no-underline hover:opacity-90 transition-all duration-200">
               Przejdź do kontaktu →
             </Link>
           </div>

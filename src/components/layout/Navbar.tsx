@@ -39,10 +39,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-[#F07030]/30">
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-[#D4C478]/30">
               <img src="/images/ikonka owoc.png" alt="Agrogeopol Ltd Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="text-xl font-bold tracking-wide text-[#F5F5F5] group-hover:text-[#F07030] transition-colors">
+            <span className="text-xl font-bold tracking-wide text-[#F5F5F5] group-hover:text-[#D4C478] transition-colors">
               Agrogeopol Ltd
             </span>
           </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? "text-[#F07030] bg-[#F07030]/10"
+                    ? "text-[#D4C478] bg-[#D4C478]/10"
                     : "text-[#909090] hover:text-[#F5F5F5] hover:bg-[#2A2A2A]"
                 }`}
               >
@@ -94,7 +94,7 @@ export default function Navbar() {
               href={link.href}
               className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors mb-1 ${
                 pathname === link.href
-                  ? "text-[#F07030] bg-[#F07030]/10"
+                  ? "text-[#D4C478] bg-[#D4C478]/10"
                   : "text-[#909090] hover:text-[#F5F5F5] hover:bg-[#2A2A2A]"
               }`}
             >

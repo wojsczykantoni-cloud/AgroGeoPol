@@ -11,7 +11,7 @@ const offerings = [
     description:
       "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki, pomidory, papryka — sezonowe produkty prosto z Gruzji. Dostawy hurtowe do Polski i UE.",
     points: ["Owoce sezonowe", "Warzywa świeże", "Dostawy hurtowe", "Eksport bezpośredni"],
-    color: "#7AB83C",
+    color: "#8DC432",
   },
   {
     icon: Snowflake,
@@ -29,7 +29,7 @@ const offerings = [
     description:
       "Uzupełnieniem naszej oferty są mrożone ślimaki i filet ze ślimaków, przeznaczone na eksport. Hodowla prowadzona w kontrolowanych warunkach, wysoka jakość.",
     points: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Produkt uzupełniający"],
-    color: "#F07030",
+    color: "#D4C478",
   },
 ];
 
@@ -39,12 +39,12 @@ export default function Offerings() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">
             Co oferujemy
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-[#F5F5F5] leading-tight font-serif mb-4">
             Trzy kategorie,{" "}
-            <span className="text-[#F07030] italic font-normal">jedno źródło</span>
+            <span className="text-[#D4C478] italic font-normal">jedno źródło</span>
           </h2>
           <p className="max-w-xl mx-auto text-[#909090] text-base leading-relaxed">
             Gruzja ma wyjątkowy klimat — korzystamy z tego w pełni. Każda kategoria to osobna linia dostawy, osobna jakość kontroli.
