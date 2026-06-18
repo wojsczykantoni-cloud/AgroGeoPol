@@ -8,17 +8,17 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <main className="min-h-screen bg-[#0C0F0A] pt-24 pb-20">
+    <main className="min-h-screen bg-[#F5F2EC] pt-24 pb-20">
       <div className="container mx-auto px-4">
         {/* Header section */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-4">
             Nasza Galeria
           </p>
-          <h1 className="text-4xl md:text-5xl font-light text-[#F5F0E8] font-serif mb-6">
+          <h1 className="text-4xl md:text-5xl font-light text-[#1A2A0A] font-serif mb-6">
             Autentyczność i transparentność
           </h1>
-          <p className="text-[#9A9A8A] text-lg">
+          <p className="text-[#6B7A5A] text-lg">
             Zapraszamy za kulisy AgroGeoPol. Zobacz na własne oczy, jak wygląda nasza codzienna praca z pasją na polskiej hodowli ślimaków.
           </p>
         </div>

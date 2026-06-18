@@ -39,15 +39,15 @@ export default function ONasPage() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-[#0D160D] to-[#0D0808]">
+      <section className="py-20 bg-gradient-to-b from-[#F0EDE6] to-[#F5F2EC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-4">
             O nas
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#F5F0E8] mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#1A2A0A] mb-6">
             Kim jesteśmy?
           </h1>
-          <p className="text-lg text-[#9A9A8A] leading-relaxed">
+          <p className="text-lg text-[#6B7A5A] leading-relaxed">
             Agrogeopol Ltd specjalizuje się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji.
             Dostarczamy produkty najwyższej jakości bezpośrednio od producenta — dla hurtowni, przetwórni i restauracji.
           </p>
@@ -55,17 +55,17 @@ export default function ONasPage() {
       </section>
 
       {/* Story */}
-      <section className="py-20 bg-[#0D0808] section-border-top">
+      <section className="py-20 bg-[#F5F2EC] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-4">
+              <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-4">
                 Nasza historia
               </p>
-              <h2 className="text-3xl font-bold text-[#F5F0E8] mb-6">
+              <h2 className="text-3xl font-bold text-[#1A2A0A] mb-6">
                 Z miłości do natury i innowacji
               </h2>
-              <div className="space-y-4 text-[#9A9A8A] leading-relaxed">
+              <div className="space-y-4 text-[#6B7A5A] leading-relaxed">
                 <p>
                   Agrogeopol Ltd to firma z pasją do jakości i naturalnych produktów. Działamy w sercu Kaukazu — Gruzji, kraju o wyjątkowym klimacie i wielowiekowych tradycjach rolniczych.
                 </p>
@@ -91,26 +91,26 @@ export default function ONasPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-[#1C1010] section-border-top">
+      <section className="py-20 bg-[#EAF0E0] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-3">
+            <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-3">
               Nasze wartości
             </p>
-            <h2 className="text-3xl font-bold text-[#F5F0E8]">
+            <h2 className="text-3xl font-bold text-[#1A2A0A]">
               Co nas wyróżnia
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <div key={v.title} className="card-dark rounded-xl p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-[#C0392B]/10 flex items-center justify-center mx-auto mb-4">
-                  <v.icon size={22} className="text-[#C0392B]" />
+                <div className="w-12 h-12 rounded-xl bg-[#E07B39]/10 flex items-center justify-center mx-auto mb-4">
+                  <v.icon size={22} className="text-[#E07B39]" />
                 </div>
-                <h3 className="text-base font-semibold text-[#F5F0E8] mb-2">
+                <h3 className="text-base font-semibold text-[#1A2A0A] mb-2">
                   {v.title}
                 </h3>
-                <p className="text-sm text-[#9A9A8A] leading-relaxed">
+                <p className="text-sm text-[#6B7A5A] leading-relaxed">
                   {v.description}
                 </p>
               </div>
@@ -120,29 +120,29 @@ export default function ONasPage() {
       </section>
 
       {/* Team placeholder */}
-      <section className="py-20 bg-[#0D0808] section-border-top">
+      <section className="py-20 bg-[#F5F2EC] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-3">
             Zespół
           </p>
-          <h2 className="text-3xl font-bold text-[#F5F0E8] mb-4">
+          <h2 className="text-3xl font-bold text-[#1A2A0A] mb-4">
             Ludzie za marką
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Marcin Zaremba */}
             <div className="card-dark rounded-2xl p-8 flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C0392B]/20 to-[#3D7A3D]/20 border border-[#1F2E1F] flex items-center justify-center text-3xl">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#E07B39]/20 to-[#2D5A1B]/20 border border-[#D5D0C0] flex items-center justify-center text-3xl">
                 👤
               </div>
               <div>
-                <p className="font-semibold text-[#F5F0E8] text-center">Marcin Zaremba</p>
-                <p className="text-sm text-[#C0392B] text-center">Założyciel</p>
+                <p className="font-semibold text-[#1A2A0A] text-center">Marcin Zaremba</p>
+                <p className="text-sm text-[#E07B39] text-center">Założyciel</p>
               </div>
             </div>
 
             {/* Szymon Wojsczyk */}
             <div className="card-dark rounded-2xl p-8 flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full overflow-hidden border border-[#1F2E1F] relative">
+              <div className="w-20 h-20 rounded-full overflow-hidden border border-[#D5D0C0] relative">
                 <Image
                   src="/images/gallery-11.jpeg"
                   alt="Szymon Wojsczyk"
@@ -151,8 +151,8 @@ export default function ONasPage() {
                 />
               </div>
               <div>
-                <p className="font-semibold text-[#F5F0E8] text-center">Szymon Wojsczyk</p>
-                <p className="text-sm text-[#C0392B] text-center">Współzałożyciel</p>
+                <p className="font-semibold text-[#1A2A0A] text-center">Szymon Wojsczyk</p>
+                <p className="text-sm text-[#E07B39] text-center">Współzałożyciel</p>
               </div>
             </div>
           </div>

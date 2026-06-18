@@ -41,43 +41,43 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --color-gold: #C0392B;
-  --color-gold-light: #E8A020;
-  --color-green-accent: #8B1C1C;
-  --color-dark-bg: #0D0808;
-  --color-dark-card: #150E0E;
-  --color-dark-section: #1C1010;
+  --color-gold: #E07B39;
+  --color-gold-light: #F0A060;
+  --color-green-accent: #2D5A1B;
+  --color-dark-bg: #F5F2EC;
+  --color-dark-card: #FFFFFF;
+  --color-dark-section: #EAF0E0;
 }
 
 :root {
-  --background: #0D0808;
-  --foreground: #F5F0E8;
-  --card: #150E0E;
-  --card-foreground: #F5F0E8;
-  --popover: #150E0E;
-  --popover-foreground: #F5F0E8;
-  --primary: #C0392B;
-  --primary-foreground: #F5F0E8;
-  --secondary: #8B1C1C;
-  --secondary-foreground: #F5F0E8;
-  --muted: #231515;
-  --muted-foreground: #9A9A8A;
-  --accent: #C0392B;
-  --accent-foreground: #F5F0E8;
-  --destructive: #7f1d1d;
-  --destructive-foreground: #F5F0E8;
-  --border: #2A1818;
-  --input: #2A1818;
-  --ring: #C0392B;
+  --background: #F5F2EC;
+  --foreground: #1A2A0A;
+  --card: #FFFFFF;
+  --card-foreground: #1A2A0A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A2A0A;
+  --primary: #E07B39;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2D5A1B;
+  --secondary-foreground: #FFFFFF;
+  --muted: #EAF0E0;
+  --muted-foreground: #6B7A5A;
+  --accent: #E07B39;
+  --accent-foreground: #FFFFFF;
+  --destructive: #c0392b;
+  --destructive-foreground: #FFFFFF;
+  --border: #D5D0C0;
+  --input: #D5D0C0;
+  --ring: #E07B39;
   --radius: 0.625rem;
-  --sidebar: #150E0E;
-  --sidebar-foreground: #F5F0E8;
-  --sidebar-primary: #C0392B;
-  --sidebar-primary-foreground: #F5F0E8;
-  --sidebar-accent: #231515;
-  --sidebar-accent-foreground: #F5F0E8;
-  --sidebar-border: #2A1818;
-  --sidebar-ring: #C0392B;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1A2A0A;
+  --sidebar-primary: #E07B39;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EAF0E0;
+  --sidebar-accent-foreground: #1A2A0A;
+  --sidebar-border: #D5D0C0;
+  --sidebar-ring: #E07B39;
 }
 
 @layer base {
@@ -96,26 +96,26 @@
 
 @layer utilities {
   .text-gold {
-    color: #C0392B;
+    color: #E07B39;
   }
   .bg-dark-card {
-    background-color: #150E0E;
+    background-color: #FFFFFF;
   }
   .bg-dark-section {
-    background-color: #1C1010;
+    background-color: #EAF0E0;
   }
   .border-gold {
-    border-color: #C0392B;
+    border-color: #E07B39;
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, #C0392B 0%, #E8A020 60%, #C0392B 100%);
+    background: linear-gradient(135deg, #2D5A1B 0%, #E07B39 60%, #2D5A1B 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .btn-gold {
-    background: linear-gradient(135deg, #C0392B 0%, #9B2D21 50%, #C0392B 100%);
-    color: #F5F0E8;
+    background: linear-gradient(135deg, #E07B39 0%, #C86020 50%, #E07B39 100%);
+    color: #FFFFFF;
     font-weight: 600;
     transition: opacity 0.2s, transform 0.2s;
   }
@@ -124,14 +124,14 @@
     transform: translateY(-1px);
   }
   .card-dark {
-    background-color: #150E0E;
-    border: 1px solid #2A1818;
+    background-color: #FFFFFF;
+    border: 1px solid #D5D0C0;
   }
   .card-dark:hover {
-    border-color: #C0392B40;
+    border-color: #E07B3960;
   }
   .section-border-top {
-    border-top: 1px solid #2A1818;
+    border-top: 1px solid #D5D0C0;
   }
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out both;

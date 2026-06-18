@@ -13,10 +13,10 @@ const actions = [
     value: "+995 555 56 83 02",
     sub: "Odbieramy pon–pt 8:00–18:00",
     href: "tel:+995555568302",
-    color: "from-[#8B1C1C]/20 to-[#8B1C1C]/5",
-    border: "hover:border-[#C0392B]/40",
-    iconColor: "text-[#C0392B]",
-    iconBg: "bg-[#8B1C1C]/20",
+    color: "from-[#2D5A1B]/20 to-[#2D5A1B]/5",
+    border: "hover:border-[#E07B39]/40",
+    iconColor: "text-[#E07B39]",
+    iconBg: "bg-[#2D5A1B]/20",
     cta: "Połącz teraz",
   },
   {
@@ -37,10 +37,10 @@ const actions = [
     value: "kontakt@agrogeopol.pl",
     sub: "Odpowiadamy w ciągu 24h",
     href: "mailto:kontakt@agrogeopol.pl",
-    color: "from-[#C0392B]/10 to-[#C0392B]/5",
-    border: "hover:border-[#C0392B]/40",
-    iconColor: "text-[#C0392B]",
-    iconBg: "bg-[#C0392B]/10",
+    color: "from-[#E07B39]/10 to-[#E07B39]/5",
+    border: "hover:border-[#E07B39]/40",
+    iconColor: "text-[#E07B39]",
+    iconBg: "bg-[#E07B39]/10",
     cta: "Wyślij e-mail",
   },
 ];
@@ -52,12 +52,12 @@ const details = [
 
 export default function KontaktPage() {
   return (
-    <div className="pt-24 bg-[#0D0808] min-h-screen">
+    <div className="pt-24 bg-[#F5F2EC] min-h-screen">
 
       {/* Header */}
-      <section className="py-12 bg-gradient-to-b from-[#150C0C] to-[#0D0808]">
+      <section className="py-12 bg-gradient-to-b from-[#F0EDE6] to-[#F5F2EC]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest">Kontakt</p>
+          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest">Kontakt</p>
         </div>
       </section>
 
@@ -76,9 +76,9 @@ export default function KontaktPage() {
                 <action.icon size={26} className={action.iconColor} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold text-[#9A9A8A] uppercase tracking-widest mb-0.5">{action.label}</p>
-                <p className="text-lg font-bold text-[#F5F0E8] truncate">{action.value}</p>
-                <p className="text-sm text-[#9A9A8A]">{action.sub}</p>
+                <p className="text-xs font-semibold text-[#6B7A5A] uppercase tracking-widest mb-0.5">{action.label}</p>
+                <p className="text-lg font-bold text-[#1A2A0A] truncate">{action.value}</p>
+                <p className="text-sm text-[#6B7A5A]">{action.sub}</p>
               </div>
               <span className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border shrink-0 ${action.iconColor} border-current/30`}>
                 {action.cta} →
@@ -94,12 +94,12 @@ export default function KontaktPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {details.map((d) => (
               <div key={d.label} className="card-dark rounded-xl p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#C0392B]/10 flex items-center justify-center shrink-0">
-                  <d.icon size={18} className="text-[#C0392B]" />
+                <div className="w-10 h-10 rounded-lg bg-[#E07B39]/10 flex items-center justify-center shrink-0">
+                  <d.icon size={18} className="text-[#E07B39]" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#9A9A8A] mb-0.5">{d.label}</p>
-                  <p className="text-sm font-medium text-[#F5F0E8]">{d.value}</p>
+                  <p className="text-xs text-[#6B7A5A] mb-0.5">{d.label}</p>
+                  <p className="text-sm font-medium text-[#1A2A0A]">{d.value}</p>
                 </div>
               </div>
             ))}
