@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm mb-8 animate-fade-in" style={{ animationDelay: '100ms' }}>
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
           <span className="text-sm font-medium tracking-wide text-gray-200">
-            🇬🇪 Eksport bezpośredni z Gruzji — B2B
+            🇬🇪 Eksport bezpośredni z Gruzji
           </span>
         </div>
 
