@@ -20,8 +20,7 @@ export default function CTA() {
             Masz pytania lub chcesz złożyć zamówienie?
           </h2>
           <p className="text-[#9A9A8A] text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Skontaktuj się z nami — odpowiemy szybko i pomożemy dobrać produkty
-            do Twoich potrzeb. Jesteśmy dostępni dla restauracji, firm i klientów indywidualnych.
+            Skontaktuj się z nami — odpowiemy szybko i pomożemy dobrać produkty do Twoich potrzeb. Jesteśmy dostępni dla hurtowni, przetwórni, restauracji i importerów.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

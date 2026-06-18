@@ -1,8 +1,8 @@
 const stats = [
-  { value: "🇬🇪", label: "Hodowla w Gruzji", sub: "własna farma na Kaukazie" },
-  { value: "3", label: "Obszary działalności", sub: "ślimaki, owoce/warzywa, chłodnia" },
-  { value: "B2B+B2C", label: "Model sprzedaży", sub: "firmy i klienci indywidualni" },
-  { value: "❄️", label: "Własne chłodnie", sub: "profesjonalne magazynowanie" },
+  { value: "🇬🇪", label: "Eksport z Gruzji", sub: "bezpośrednio od producenta" },
+  { value: "IQF", label: "Mrożenie indywidualne", sub: "zachowana świeżość i wartości" },
+  { value: "B2B", label: "Sprzedaż hurtowa", sub: "dla firm i dystrybutorów" },
+  { value: "❄️", label: "Własne chłodnie", sub: "całoroczna dostępność" },
 ];
 
 export default function Stats() {
@@ -14,17 +14,11 @@ export default function Stats() {
             <div
               key={stat.label}
               className={`flex flex-col items-center text-center ${
-                i < stats.length - 1
-                  ? "lg:border-r lg:border-[#1F2E1F]"
-                  : ""
+                i < stats.length - 1 ? "lg:border-r lg:border-[#1F2E1F]" : ""
               }`}
             >
-              <span className="text-4xl sm:text-5xl font-bold text-gradient-gold mb-2">
-                {stat.value}
-              </span>
-              <span className="text-sm font-semibold text-[#F5F0E8] mb-1">
-                {stat.label}
-              </span>
+              <span className="text-4xl sm:text-5xl font-bold text-gradient-gold mb-2">{stat.value}</span>
+              <span className="text-sm font-semibold text-[#F5F0E8] mb-1">{stat.label}</span>
               <span className="text-xs text-[#9A9A8A]">{stat.sub}</span>
             </div>
           ))}

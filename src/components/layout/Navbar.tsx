@@ -40,10 +40,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C9A84C]/30">
-              <img src="/images/logo.png" alt="AgroGeoPol Logo" className="w-full h-full object-cover" />
+              <img src="/images/logo.png" alt="Agrogeopol Ltd Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-xl font-bold tracking-wide text-[#F5F0E8] group-hover:text-[#C9A84C] transition-colors">
-              AgroGeoPol
+              Agrogeopol Ltd
             </span>
           </Link>
 

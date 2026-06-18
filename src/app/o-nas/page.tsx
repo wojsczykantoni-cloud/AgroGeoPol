@@ -5,7 +5,7 @@ import { Leaf, Users, Target, History } from "lucide-react";
 export const metadata: Metadata = {
   title: "O nas",
   description:
-    "Poznaj AgroGeoPol — polskiego producenta ślimaków jadalnych, muszli i kosmetyków ze śluzu ślimaka.",
+    "Poznaj Agrogeopol Ltd — eksportera świeżych i mrożonych owoców oraz warzyw z Gruzji.",
 };
 
 const values = [
@@ -48,9 +48,8 @@ export default function ONasPage() {
             Kim jesteśmy?
           </h1>
           <p className="text-lg text-[#9A9A8A] leading-relaxed">
-            AgroGeoPol to polska firma specjalizująca się w hodowli ślimaków jadalnych,
-            pozyskiwaniu mucyny oraz wytwarzaniu naturalnych kosmetyków ze śluzu ślimaka.
-            Łączymy pasję do natury z profesjonalnym podejściem do biznesu.
+            Agrogeopol Ltd specjalizuje się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji.
+            Dostarczamy produkty najwyższej jakości bezpośrednio od producenta — dla hurtowni, przetwórni i restauracji.
           </p>
         </div>
       </section>
@@ -68,21 +67,13 @@ export default function ONasPage() {
               </h2>
               <div className="space-y-4 text-[#9A9A8A] leading-relaxed">
                 <p>
-                  AgroGeoPol powstało z fascynacji hodowlą ślimakow i
-                  przekonania, że natura oferuje nam niezwykłe surowce — jeśli
-                  tylko podejdziemy do nich z szacunkiem i wiedzą.
+                  Agrogeopol Ltd to firma z pasją do jakości i naturalnych produktów. Działamy w sercu Kaukazu — Gruzji, kraju o wyjątkowym klimacie i wielowiekowych tradycjach rolniczych.
                 </p>
                 <p>
-                  Zaczęliśmy od małej hodowli, skupionej na produkcji ślimaków
-                  jadalnych dla lokalnych restauracji. Szybko jednak
-                  dostrzegliśmy potencjał mucyny — śluzu ślimaka — w
-                  kosmetyce.
+                  Specjalizujemy się w eksporcie świeżych owoców i warzyw sezonowych oraz mrożonek IQF. Dysponujemy własnymi chłodniami, które zapewniają ciągłość dostaw przez cały rok.
                 </p>
                 <p>
-                  Dziś oferujemy kompleksową ofertę: ślimaki jadalne, muszle
-                  dekoracyjne, surową mucynę dla przemysłu kosmetycznego oraz
-                  gotowe kosmetyki pod własną marką. Wszystko z jednego, polskiego
-                  źródła.
+                  Działalnością uzupełniającą jest hodowla ślimaków — oferujemy mrożone ślimaki i filet na eksport. Wszystko z jednego, zaufanego źródła — bezpośrednio od producenta.
                 </p>
               </div>
             </div>
@@ -91,7 +82,7 @@ export default function ONasPage() {
             <div className="rounded-2xl overflow-hidden aspect-square">
               <img
                 src="/images/gallery-05.jpeg"
-                alt="Zdjęcie hodowli AgroGeoPol"
+                alt="Zdjęcie hodowli Agrogeopol Ltd"
                 className="w-full h-full object-cover"
               />
             </div>

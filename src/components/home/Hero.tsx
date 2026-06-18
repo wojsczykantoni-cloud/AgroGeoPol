@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Phone } from 'lucide-react';
 
@@ -14,38 +13,32 @@ export default function Hero() {
         setScrollY(window.scrollY);
       });
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
-
   return (
     <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-black">
-      {/* Background with Parallax */}
-      <div 
-        className="absolute inset-0 w-full h-full animate-parallax-slow z-0"
+      {/* Background placeholder — zamień src na zdjęcie chłodni gdy będzie gotowe */}
+      <div
+        id="hero-bg"
+        className="hero-bg absolute inset-0 w-full h-full z-0"
         style={{ transform: `translateY(${scrollY * 0.4}px)` }}
       >
+        <div className="w-full h-full bg-gradient-to-br from-[#0D2B0D] via-[#0A1F0A] to-[#081508] flex items-center justify-center">
+          <span className="text-[#1F3A1F] text-sm font-medium text-center px-8 select-none">
+            [Zdjęcie: chłodnia z owocami i warzywami z Gruzji — do dodania]
+          </span>
+        </div>
+        {/* Gdy zdjęcie będzie gotowe, odkomentuj i usuń div powyżej:
         <Image
-          src="/images/hero-snail-bg.png"
-          alt="Ślimak na mchu w ogrodzie"
+          src="/images/hero-chlodnia.jpg"
+          alt="Chłodnia z owocami i warzywami z Gruzji"
           fill
           priority
           className="object-cover object-center opacity-80"
           sizes="100vw"
-        />
-        {/* Placeholder for Video Background - Uncomment when video is ready */}
-        {/* <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/videos/hero-snail.mp4" type="video/mp4" />
-        </video> */}
+        /> */}
       </div>
 
       {/* Gradient Overlays */}
@@ -62,14 +55,16 @@ export default function Hero() {
         </div>
 
         {/* Heading */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-light text-[#F5F0E8] font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Natura w <br className="md:hidden" />
-          <span className="font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] to-[#E5CC82]" style={{ paddingBottom: '0.45em', lineHeight: '1', display: 'inline-block', overflow: 'visible', verticalAlign: 'baseline' }}>najczystszej</span> postaci
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#F5F0E8] font-serif mb-4 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
+          Sprzedaż świeżych i mrożonych
+          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] to-[#E5CC82]">
+            owoców oraz warzyw.
+          </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="max-w-2xl text-lg md:text-xl text-gray-300 mb-10 leading-relaxed animate-fade-in" style={{ animationDelay: '500ms' }}>
-          Hodowla ślimaków, sprzedaż owoców i warzyw oraz magazynowanie chłodnicze — wszystko prosto od producenta.
+        <p className="text-base md:text-lg text-gray-400 mb-10 animate-fade-in italic" style={{ animationDelay: '500ms' }}>
+          Dodatkowo: hodowla ślimaków.
         </p>
 
         {/* CTAs */}
@@ -81,7 +76,7 @@ export default function Hero() {
             Przeglądaj ofertę
           </Link>
           <Link
-            href="#kontakt"
+            href="/kontakt"
             className="px-8 py-4 bg-transparent border border-[#C9A84C] text-[#C9A84C] font-semibold rounded-lg hover:bg-[#C9A84C]/10 transition-all duration-300 backdrop-blur-sm"
           >
             Skontaktuj się
@@ -100,7 +95,7 @@ export default function Hero() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
               <MapPin size={16} className="text-[#C9A84C]" />
-              <span>Polska / Odbiór osobisty</span>
+              <span>Gruzja / Dostawy do Polski i UE</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -109,7 +104,7 @@ export default function Hero() {
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-gray-400 text-xs">Jakość gwarantowana przez AgroGeoPol</span>
+            <span className="text-gray-400 text-xs">Jakość gwarantowana przez Agrogeopol Ltd</span>
           </div>
         </div>
       </div>

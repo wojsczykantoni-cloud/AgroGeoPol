@@ -21,10 +21,10 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#3D7A3D] flex items-center justify-center text-[#0A0F0A] font-bold text-sm">
                 AG
               </div>
-              <span className="text-xl font-bold text-[#F5F0E8]">AgroGeoPol</span>
+              <span className="text-xl font-bold text-[#F5F0E8]">Agrogeopol Ltd</span>
             </Link>
             <p className="text-sm text-[#9A9A8A] leading-relaxed mb-5">
-              Hodowla ślimaków, owoce i warzywa z Gruzji, własne chłodnie — wszystko od producenta.
+              Eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Własne chłodnie, mrożenie IQF, dostawy hurtowe.
             </p>
             <div className="flex gap-3">
               <a
@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 section-border-top flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[#9A9A8A]">
-            © {new Date().getFullYear()} AgroGeoPol. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Agrogeopol Ltd. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>

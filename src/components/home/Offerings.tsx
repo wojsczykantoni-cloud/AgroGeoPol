@@ -1,35 +1,35 @@
 'use client';
 
-import { Thermometer, Apple, Shell } from "lucide-react";
+import { Thermometer, Apple, Snowflake } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 
 const offerings = [
   {
-    icon: Shell,
-    tag: "Hodowla własna",
-    title: "Ślimaki",
+    icon: Apple,
+    tag: "Główna oferta",
+    title: "Świeże owoce i warzywa",
     description:
-      "Hodowla ślimaków jadalnych w warunkach naturalnych, bez antybiotyków. Oferujemy ślimaki świeże, muszle dekoracyjne, mucynę oraz kosmetyki ze śluzu.",
-    points: ["Ślimaki jadalne", "Mucyna (śluz)", "Muszle dekoracyjne", "Kosmetyki naturalne"],
-    color: "#C9A84C",
+      "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki, pomidory, papryka — sezonowe produkty prosto z Gruzji. Dostawy hurtowe do Polski i UE.",
+    points: ["Owoce sezonowe", "Warzywa świeże", "Dostawy hurtowe", "Eksport bezpośredni"],
+    color: "#6AAF47",
   },
   {
-    icon: Apple,
-    tag: "Sprzedaż hurtowa",
-    title: "Owoce i warzywa",
+    icon: Snowflake,
+    tag: "Główna oferta",
+    title: "Mrożonki IQF",
     description:
-      "Hurtowa sprzedaż świeżych owoców i warzyw. Współpracujemy ze sprawdzonymi producentami i zapewniamy ciągłość dostaw przez cały rok.",
-    points: ["Świeże owoce sezonowe", "Warzywa hurtowo", "Dostawy B2B", "Stałe kontrakty"],
-    color: "#6AAF47",
+      "Indywidualnie mrożone owoce i warzywa: truskawki, wiśnie, śliwki, maliny, fasolka szparagowa, groszek, kukurydza. Zachowana świeżość i wartości odżywcze.",
+    points: ["Mrożenie IQF", "Truskawki, wiśnie, maliny", "Fasolka, groszek, kukurydza", "Skala hurtowa"],
+    color: "#4A9EC9",
   },
   {
     icon: Thermometer,
     tag: "Infrastruktura",
-    title: "Magazynowanie chłodnicze",
+    title: "Własne chłodnie",
     description:
-      "Dysponujemy własnymi chłodniami, które umożliwiają przechowywanie towarów w optymalnych warunkach temperaturowych — zarówno dla ślimaków, jak i produktów ogrodniczych.",
-    points: ["Własne chłodnie", "Kontrolowana temperatura", "Długoterminowe składowanie", "Obsługa B2B"],
-    color: "#4A9EC9",
+      "Dysponujemy własnymi chłodniami zapewniającymi optymalne warunki przechowywania. Ciągłość dostaw przez cały rok niezależnie od sezonu.",
+    points: ["Własne chłodnie", "Kontrolowana temperatura", "Całoroczna dostępność", "Obsługa B2B"],
+    color: "#C9A84C",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Offerings() {
             <span className="text-[#C9A84C] italic font-normal">naszej działalności</span>
           </h2>
           <p className="max-w-xl mx-auto text-[#9A9A8A] text-base leading-relaxed">
-            Łączymy hodowlę ślimaków, handel owocami i warzywami oraz profesjonalne magazynowanie chłodnicze — wszystko pod jednym dachem.
+            Specjalizujemy się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji — kraju o wyjątkowym klimacie i tradycjach rolniczych.
           </p>
         </div>
 
@@ -56,37 +56,23 @@ export default function Offerings() {
           {offerings.map((item, i) => (
             <AnimateOnScroll key={item.title} animation="fade-up" delay={i * 150}>
               <div className="h-full card-dark rounded-2xl p-7 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:border-white/10">
-                {/* Icon */}
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: `${item.color}18` }}
                 >
                   <item.icon size={24} style={{ color: item.color }} />
                 </div>
-
-                {/* Tag + Title */}
                 <div>
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider mb-1 block"
-                    style={{ color: item.color }}
-                  >
+                  <span className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: item.color }}>
                     {item.tag}
                   </span>
                   <h3 className="text-2xl font-bold text-[#F5F0E8]">{item.title}</h3>
                 </div>
-
-                <p className="text-sm text-[#9A9A8A] leading-relaxed flex-1">
-                  {item.description}
-                </p>
-
-                {/* Points */}
+                <p className="text-sm text-[#9A9A8A] leading-relaxed flex-1">{item.description}</p>
                 <ul className="space-y-2 pt-2 border-t border-[#1F2E1F]">
                   {item.points.map((pt) => (
                     <li key={pt} className="flex items-center gap-2 text-sm text-[#9A9A8A]">
-                      <span
-                        className="w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{ backgroundColor: item.color }}
-                      />
+                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
                       {pt}
                     </li>
                   ))}

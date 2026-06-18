@@ -15,17 +15,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AgroGeoPol | Hodowla Ślimaków i Kosmetyki",
+  title: "Agrogeopol Ltd | Owoce i Warzywa z Gruzji",
   description:
-    "AgroGeoPol — producent ślimaków jadalnych, muszli dekoracyjnych oraz kosmetyków na bazie śluzu ślimaka.",
+    "Agrogeopol Ltd — eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe, mrożonki IQF, bezpośrednio od producenta.",
   keywords: [
-    "ślimaki jadalne",
-    "hodowla ślimaków",
-    "muszle ślimakow",
-    "śluz ślimaka",
-    "mucyna ślimaka",
-    "kosmetyki ze śluzu",
-    "AgroGeoPol",
+    "owoce z Gruzji",
+    "warzywa z Gruzji",
+    "mrożonki IQF",
+    "eksport owoców",
+    "hurtownia owoców",
+    "Agrogeopol",
   ],
 };
 
