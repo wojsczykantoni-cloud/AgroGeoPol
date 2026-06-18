@@ -26,7 +26,7 @@ export default function Hero() {
         style={{ transform: `translateY(${scrollY * 0.4}px)` }}
       >
         <Image
-          src="/images/hero-chlodnia.jpg.png"
+          src="/images/hero-chlodnia nowa .jpg.png"
           alt="Chłodnia z owocami i warzywami z Gruzji"
           fill
           priority
