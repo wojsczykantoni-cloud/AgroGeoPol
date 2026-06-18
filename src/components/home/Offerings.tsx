@@ -24,11 +24,11 @@ const offerings = [
   },
   {
     icon: Thermometer,
-    tag: "Infrastruktura",
-    title: "Własne chłodnie",
+    tag: "Dodatkowo",
+    title: "Hodowla ślimaków",
     description:
-      "Dysponujemy własnymi chłodniami zapewniającymi optymalne warunki przechowywania. Ciągłość dostaw przez cały rok niezależnie od sezonu.",
-    points: ["Własne chłodnie", "Kontrolowana temperatura", "Całoroczna dostępność", "Obsługa B2B"],
+      "Uzupełnieniem naszej oferty są mrożone ślimaki i filet ze ślimaków, przeznaczone na eksport. Hodowla prowadzona w kontrolowanych warunkach, wysoka jakość.",
+    points: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Produkt uzupełniający"],
     color: "#C9A84C",
   },
 ];
