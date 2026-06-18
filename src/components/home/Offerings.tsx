@@ -40,14 +40,14 @@ export default function Offerings() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-3">
-            Czym się zajmujemy
+            Co oferujemy
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-[#F5F0E8] leading-tight font-serif mb-4">
-            Trzy filary{" "}
-            <span className="text-[#C9A84C] italic font-normal">naszej działalności</span>
+            Trzy kategorie,{" "}
+            <span className="text-[#C9A84C] italic font-normal">jedno źródło</span>
           </h2>
           <p className="max-w-xl mx-auto text-[#9A9A8A] text-base leading-relaxed">
-            Specjalizujemy się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji — kraju o wyjątkowym klimacie i tradycjach rolniczych.
+            Gruzja ma wyjątkowy klimat — korzystamy z tego w pełni. Każda kategoria to osobna linia dostawy, osobna jakość kontroli.
           </p>
         </div>
 

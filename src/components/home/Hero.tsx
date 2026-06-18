@@ -50,21 +50,21 @@ export default function Hero() {
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm mb-8 animate-fade-in" style={{ animationDelay: '100ms' }}>
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
           <span className="text-sm font-medium tracking-wide text-gray-200">
-            Produkcja świeżych i mrożonych owoców oraz warzyw, hodowla ślimaków.
+            🇬🇪 Eksport bezpośredni z Gruzji — B2B
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#F5F0E8] font-serif mb-4 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Sprzedaż świeżych i mrożonych
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#F5F0E8] font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
+          Smak Kaukazu
           <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] to-[#E5CC82]">
-            owoców oraz warzyw.
+            prosto do Twojej firmy.
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-gray-400 mb-10 animate-fade-in italic" style={{ animationDelay: '500ms' }}>
-          Dodatkowo: hodowla ślimaków.
+        <p className="text-base md:text-lg text-gray-400 mb-10 animate-fade-in max-w-xl" style={{ animationDelay: '500ms' }}>
+          Hurtowe dostawy świeżych i mrożonych owoców oraz warzyw dla hurtowni, przetwórni i restauracji w Polsce i UE.
         </p>
 
         {/* CTAs */}
