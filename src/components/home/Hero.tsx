@@ -52,7 +52,7 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#F5F0E8] font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
           Smak Kaukazu
-          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#C9A84C] to-[#E5CC82]">
+          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#C0392B] to-[#E5CC82]">
             prosto do Twojej firmy.
           </span>
         </h1>
@@ -66,13 +66,13 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Link
             href="/sklep"
-            className="px-8 py-4 bg-gradient-to-r from-[#C9A84C] to-[#A88B3D] text-black font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-4 bg-gradient-to-r from-[#C0392B] to-[#A88B3D] text-black font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
             Przeglądaj ofertę
           </Link>
           <Link
             href="/kontakt"
-            className="px-8 py-4 bg-transparent border border-[#C9A84C] text-[#C9A84C] font-semibold rounded-lg hover:bg-[#C9A84C]/10 transition-all duration-300 backdrop-blur-sm"
+            className="px-8 py-4 bg-transparent border border-[#C0392B] text-[#C0392B] font-semibold rounded-lg hover:bg-[#C0392B]/10 transition-all duration-300 backdrop-blur-sm"
           >
             Skontaktuj się
           </Link>
@@ -82,19 +82,19 @@ export default function Hero() {
       {/* Contact Strip */}
       <div
         id="bottom-bar"
-        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#1F2E1F] bg-[#0A0F0A]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
+        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#2A1818] bg-[#0D0808]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
           scrollY > 200 ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
         <div className="container mx-auto px-4 h-14 flex items-center justify-between text-sm text-gray-300">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-              <MapPin size={16} className="text-[#C9A84C]" />
+              <MapPin size={16} className="text-[#C0392B]" />
               <span>Gruzja / Dostawy do Polski i UE</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={16} className="text-[#C9A84C]" />
+              <Phone size={16} className="text-[#C0392B]" />
               <span>+995 555 56 83 02</span>
             </a>
           </div>

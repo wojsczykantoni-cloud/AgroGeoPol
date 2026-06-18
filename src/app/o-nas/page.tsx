@@ -39,9 +39,9 @@ export default function ONasPage() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-[#0D160D] to-[#0A0F0A]">
+      <section className="py-20 bg-gradient-to-b from-[#0D160D] to-[#0D0808]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-4">
             O nas
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-[#F5F0E8] mb-6">
@@ -55,11 +55,11 @@ export default function ONasPage() {
       </section>
 
       {/* Story */}
-      <section className="py-20 bg-[#0A0F0A] section-border-top">
+      <section className="py-20 bg-[#0D0808] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-4">
+              <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-4">
                 Nasza historia
               </p>
               <h2 className="text-3xl font-bold text-[#F5F0E8] mb-6">
@@ -91,10 +91,10 @@ export default function ONasPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-[#141F14] section-border-top">
+      <section className="py-20 bg-[#1C1010] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-3">
+            <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-3">
               Nasze wartości
             </p>
             <h2 className="text-3xl font-bold text-[#F5F0E8]">
@@ -104,8 +104,8 @@ export default function ONasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <div key={v.title} className="card-dark rounded-xl p-6 text-center">
-                <div className="w-12 h-12 rounded-xl bg-[#C9A84C]/10 flex items-center justify-center mx-auto mb-4">
-                  <v.icon size={22} className="text-[#C9A84C]" />
+                <div className="w-12 h-12 rounded-xl bg-[#C0392B]/10 flex items-center justify-center mx-auto mb-4">
+                  <v.icon size={22} className="text-[#C0392B]" />
                 </div>
                 <h3 className="text-base font-semibold text-[#F5F0E8] mb-2">
                   {v.title}
@@ -120,9 +120,9 @@ export default function ONasPage() {
       </section>
 
       {/* Team placeholder */}
-      <section className="py-20 bg-[#0A0F0A] section-border-top">
+      <section className="py-20 bg-[#0D0808] section-border-top">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-3">
             Zespół
           </p>
           <h2 className="text-3xl font-bold text-[#F5F0E8] mb-4">
@@ -131,12 +131,12 @@ export default function ONasPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {/* Marcin Zaremba */}
             <div className="card-dark rounded-2xl p-8 flex flex-col items-center gap-4">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A84C]/20 to-[#3D7A3D]/20 border border-[#1F2E1F] flex items-center justify-center text-3xl">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C0392B]/20 to-[#3D7A3D]/20 border border-[#1F2E1F] flex items-center justify-center text-3xl">
                 👤
               </div>
               <div>
                 <p className="font-semibold text-[#F5F0E8] text-center">Marcin Zaremba</p>
-                <p className="text-sm text-[#C9A84C] text-center">Założyciel</p>
+                <p className="text-sm text-[#C0392B] text-center">Założyciel</p>
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export default function ONasPage() {
               </div>
               <div>
                 <p className="font-semibold text-[#F5F0E8] text-center">Szymon Wojsczyk</p>
-                <p className="text-sm text-[#C9A84C] text-center">Współzałożyciel</p>
+                <p className="text-sm text-[#C0392B] text-center">Współzałożyciel</p>
               </div>
             </div>
           </div>

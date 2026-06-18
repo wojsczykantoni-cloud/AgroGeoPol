@@ -13,10 +13,10 @@ const actions = [
     value: "+995 555 56 83 02",
     sub: "Odbieramy pon–pt 8:00–18:00",
     href: "tel:+995555568302",
-    color: "from-[#3D7A3D]/20 to-[#3D7A3D]/5",
-    border: "hover:border-[#6AAF47]/40",
-    iconColor: "text-[#6AAF47]",
-    iconBg: "bg-[#3D7A3D]/20",
+    color: "from-[#8B1C1C]/20 to-[#8B1C1C]/5",
+    border: "hover:border-[#C0392B]/40",
+    iconColor: "text-[#C0392B]",
+    iconBg: "bg-[#8B1C1C]/20",
     cta: "Połącz teraz",
   },
   {
@@ -37,10 +37,10 @@ const actions = [
     value: "kontakt@agrogeopol.pl",
     sub: "Odpowiadamy w ciągu 24h",
     href: "mailto:kontakt@agrogeopol.pl",
-    color: "from-[#C9A84C]/10 to-[#C9A84C]/5",
-    border: "hover:border-[#C9A84C]/40",
-    iconColor: "text-[#C9A84C]",
-    iconBg: "bg-[#C9A84C]/10",
+    color: "from-[#C0392B]/10 to-[#C0392B]/5",
+    border: "hover:border-[#C0392B]/40",
+    iconColor: "text-[#C0392B]",
+    iconBg: "bg-[#C0392B]/10",
     cta: "Wyślij e-mail",
   },
 ];
@@ -52,12 +52,12 @@ const details = [
 
 export default function KontaktPage() {
   return (
-    <div className="pt-24 bg-[#0A0F0A] min-h-screen">
+    <div className="pt-24 bg-[#0D0808] min-h-screen">
 
       {/* Header */}
-      <section className="py-12 bg-gradient-to-b from-[#0D160D] to-[#0A0F0A]">
+      <section className="py-12 bg-gradient-to-b from-[#150C0C] to-[#0D0808]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest">Kontakt</p>
+          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest">Kontakt</p>
         </div>
       </section>
 
@@ -94,8 +94,8 @@ export default function KontaktPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {details.map((d) => (
               <div key={d.label} className="card-dark rounded-xl p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#C9A84C]/10 flex items-center justify-center shrink-0">
-                  <d.icon size={18} className="text-[#C9A84C]" />
+                <div className="w-10 h-10 rounded-lg bg-[#C0392B]/10 flex items-center justify-center shrink-0">
+                  <d.icon size={18} className="text-[#C0392B]" />
                 </div>
                 <div>
                   <p className="text-xs text-[#9A9A8A] mb-0.5">{d.label}</p>

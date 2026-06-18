@@ -31,7 +31,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#0A0F0A]/95 backdrop-blur-md border-b border-[#1F2E1F] shadow-lg shadow-black/30"
+          ? "bg-[#0D0808]/95 backdrop-blur-md border-b border-[#2A1818] shadow-lg shadow-black/30"
           : "bg-transparent"
       }`}
     >
@@ -39,10 +39,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C9A84C]/30">
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-[#C0392B]/30">
               <img src="/images/logo.png" alt="Agrogeopol Ltd Logo" className="w-full h-full object-cover" />
             </div>
-            <span className="text-xl font-bold tracking-wide text-[#F5F0E8] group-hover:text-[#C9A84C] transition-colors">
+            <span className="text-xl font-bold tracking-wide text-[#F5F0E8] group-hover:text-[#C0392B] transition-colors">
               Agrogeopol Ltd
             </span>
           </Link>
@@ -55,8 +55,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? "text-[#C9A84C] bg-[#C9A84C]/10"
-                    : "text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#1F2E1F]"
+                    ? "text-[#C0392B] bg-[#C0392B]/10"
+                    : "text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#2A1818]"
                 }`}
               >
                 {link.label}
@@ -72,7 +72,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#1F2E1F] transition-colors"
+            className="md:hidden p-2 rounded-md text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#2A1818] transition-colors"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -87,15 +87,15 @@ export default function Navbar() {
           open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-[#0A0F0A]/98 backdrop-blur-md border-t border-[#1F2E1F] px-4 pb-4 pt-2">
+        <div className="bg-[#0D0808]/98 backdrop-blur-md border-t border-[#2A1818] px-4 pb-4 pt-2">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors mb-1 ${
                 pathname === link.href
-                  ? "text-[#C9A84C] bg-[#C9A84C]/10"
-                  : "text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#1F2E1F]"
+                  ? "text-[#C0392B] bg-[#C0392B]/10"
+                  : "text-[#9A9A8A] hover:text-[#F5F0E8] hover:bg-[#2A1818]"
               }`}
             >
               {link.label}

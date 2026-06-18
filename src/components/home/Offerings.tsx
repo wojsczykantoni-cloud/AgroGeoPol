@@ -29,22 +29,22 @@ const offerings = [
     description:
       "Uzupełnieniem naszej oferty są mrożone ślimaki i filet ze ślimaków, przeznaczone na eksport. Hodowla prowadzona w kontrolowanych warunkach, wysoka jakość.",
     points: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Produkt uzupełniający"],
-    color: "#C9A84C",
+    color: "#C0392B",
   },
 ];
 
 export default function Offerings() {
   return (
-    <section className="py-24 bg-[#0D160D]">
+    <section className="py-24 bg-[#150C0C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#C0392B] uppercase tracking-widest mb-3">
             Co oferujemy
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-[#F5F0E8] leading-tight font-serif mb-4">
             Trzy kategorie,{" "}
-            <span className="text-[#C9A84C] italic font-normal">jedno źródło</span>
+            <span className="text-[#C0392B] italic font-normal">jedno źródło</span>
           </h2>
           <p className="max-w-xl mx-auto text-[#9A9A8A] text-base leading-relaxed">
             Gruzja ma wyjątkowy klimat — korzystamy z tego w pełni. Każda kategoria to osobna linia dostawy, osobna jakość kontroli.

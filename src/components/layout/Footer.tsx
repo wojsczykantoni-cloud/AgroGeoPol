@@ -12,13 +12,13 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#070C07] section-border-top mt-auto">
+    <footer className="bg-[#0C0707] section-border-top mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#3D7A3D] flex items-center justify-center text-[#0A0F0A] font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C0392B] to-[#8B1C1C] flex items-center justify-center text-[#0A0F0A] font-bold text-sm">
                 AG
               </div>
               <span className="text-xl font-bold text-[#F5F0E8]">Agrogeopol Ltd</span>
@@ -29,14 +29,14 @@ export default function Footer() {
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-9 h-9 rounded-full border border-[#1F2E1F] flex items-center justify-center text-[#9A9A8A] hover:text-[#C9A84C] hover:border-[#C9A84C] transition-colors"
+                className="w-9 h-9 rounded-full border border-[#2A1818] flex items-center justify-center text-[#9A9A8A] hover:text-[#C0392B] hover:border-[#C0392B] transition-colors"
                 aria-label="Facebook"
               >
                 <Globe size={16} />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-full border border-[#1F2E1F] flex items-center justify-center text-[#9A9A8A] hover:text-[#C9A84C] hover:border-[#C9A84C] transition-colors"
+                className="w-9 h-9 rounded-full border border-[#2A1818] flex items-center justify-center text-[#9A9A8A] hover:text-[#C0392B] hover:border-[#C0392B] transition-colors"
                 aria-label="Instagram"
               >
                 <Share2 size={16} />
@@ -54,7 +54,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#9A9A8A] hover:text-[#C9A84C] transition-colors"
+                    className="text-sm text-[#9A9A8A] hover:text-[#C0392B] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -70,21 +70,21 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-[#9A9A8A]">
-                <MapPin size={16} className="text-[#C9A84C] mt-0.5 shrink-0" />
+                <MapPin size={16} className="text-[#C0392B] mt-0.5 shrink-0" />
                 <span>Placeholder adres,<br />Polska</span>
               </li>
               <li>
                 <div className="flex items-center text-[#9A9A8A]">
-                  <Phone size={16} className="mr-3 text-[#C9A84C] shrink-0" />
+                  <Phone size={16} className="mr-3 text-[#C0392B] shrink-0" />
                   <span className="text-sm">+995 555 56 83 02</span>
                 </div>
               </li>
               <li>
                 <a
                   href="mailto:kontakt@agrogeopol.pl"
-                  className="flex items-center gap-3 text-sm text-[#9A9A8A] hover:text-[#C9A84C] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#9A9A8A] hover:text-[#C0392B] transition-colors"
                 >
-                  <Mail size={16} className="text-[#C9A84C] shrink-0" />
+                  <Mail size={16} className="text-[#C0392B] shrink-0" />
                   kontakt@agrogeopol.pl
                 </a>
               </li>
