@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Oferta — Agrogeopol Ltd",
+  title: "Oferta — AgroGeoPol Ltd",
   description:
-    "Świeże i mrożone owoce oraz warzywa z Gruzji — sprzedaż hurtowa, mrożonki IQF, eksport bezpośredni. Agrogeopol Ltd.",
+    "Świeże i mrożone owoce oraz warzywa z Gruzji — sprzedaż hurtowa, mrożonki IQF, eksport bezpośredni. AgroGeoPol Ltd.",
 };
 
 const sections = [

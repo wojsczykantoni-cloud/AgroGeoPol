@@ -98,7 +98,7 @@ export default function Hero() {
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-gray-500 text-xs">Jakość gwarantowana przez Agrogeopol Ltd</span>
+            <span className="text-gray-500 text-xs">Jakość gwarantowana przez AgroGeoPol Ltd</span>
           </div>
         </div>
       </div>

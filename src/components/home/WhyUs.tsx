@@ -53,7 +53,7 @@ export default function WhyUs() {
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">Dlaczego my?</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#F5F5F5] mb-4">
-            8 powodów, by wybrać Agrogeopol Ltd
+            8 powodów, by wybrać AgroGeoPol Ltd
           </h2>
           <p className="max-w-xl mx-auto text-[#909090] text-base leading-relaxed">
             Łączymy doświadczenie w eksporcie z nowoczesnym podejściem do jakości i obsługi klienta.

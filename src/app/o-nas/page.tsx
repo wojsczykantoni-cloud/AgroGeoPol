@@ -5,7 +5,7 @@ import { Leaf, Users, Target, History } from "lucide-react";
 export const metadata: Metadata = {
   title: "O nas",
   description:
-    "Poznaj Agrogeopol Ltd — eksportera świeżych i mrożonych owoców oraz warzyw z Gruzji.",
+    "Poznaj AgroGeoPol Ltd — eksportera świeżych i mrożonych owoców oraz warzyw z Gruzji.",
 };
 
 const values = [
@@ -48,7 +48,7 @@ export default function ONasPage() {
             Kim jesteśmy?
           </h1>
           <p className="text-lg text-[#909090] leading-relaxed">
-            Agrogeopol Ltd specjalizuje się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji.
+            AgroGeoPol Ltd specjalizuje się w eksporcie świeżych i mrożonych owoców oraz warzyw z Gruzji.
             Dostarczamy produkty najwyższej jakości bezpośrednio od producenta — dla hurtowni, przetwórni i restauracji.
           </p>
         </div>
@@ -67,7 +67,7 @@ export default function ONasPage() {
               </h2>
               <div className="space-y-4 text-[#909090] leading-relaxed">
                 <p>
-                  Agrogeopol Ltd to firma z pasją do jakości i naturalnych produktów. Działamy w sercu Kaukazu — Gruzji, kraju o wyjątkowym klimacie i wielowiekowych tradycjach rolniczych.
+                  AgroGeoPol Ltd to firma z pasją do jakości i naturalnych produktów. Działamy w sercu Kaukazu — Gruzji, kraju o wyjątkowym klimacie i wielowiekowych tradycjach rolniczych.
                 </p>
                 <p>
                   Specjalizujemy się w eksporcie świeżych owoców i warzyw sezonowych oraz mrożonek IQF. Dysponujemy własnymi chłodniami, które zapewniają ciągłość dostaw przez cały rok.
@@ -82,7 +82,7 @@ export default function ONasPage() {
             <div className="rounded-2xl overflow-hidden aspect-square">
               <img
                 src="/images/gallery-05.jpeg"
-                alt="Zdjęcie hodowli Agrogeopol Ltd"
+                alt="Zdjęcie hodowli AgroGeoPol Ltd"
                 className="w-full h-full object-cover"
               />
             </div>

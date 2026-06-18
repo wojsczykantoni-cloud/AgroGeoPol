@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agrogeopol Ltd | Owoce i Warzywa z Gruzji",
+  title: "AgroGeoPol Ltd | Owoce i Warzywa z Gruzji",
   description:
-    "Agrogeopol Ltd — eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe, mrożonki IQF, bezpośrednio od producenta.",
+    "AgroGeoPol Ltd — eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe, mrożonki IQF, bezpośrednio od producenta.",
   keywords: [
     "owoce z Gruzji",
     "warzywa z Gruzji",

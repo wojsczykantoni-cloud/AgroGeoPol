@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#D4C478] to-[#8DC432] flex items-center justify-center text-white font-bold text-sm">
                 AG
               </div>
-              <span className="text-xl font-bold text-white">Agrogeopol Ltd</span>
+              <span className="text-xl font-bold text-white">AgroGeoPol Ltd</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed mb-5">
               Eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Własne chłodnie, mrożenie IQF, dostawy hurtowe.
@@ -73,7 +73,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[#2A2A2A] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600">
-            © {new Date().getFullYear()} Agrogeopol Ltd. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} AgroGeoPol Ltd. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>
