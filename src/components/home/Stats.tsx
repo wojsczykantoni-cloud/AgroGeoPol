@@ -7,19 +7,19 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-20 bg-gradient-to-r from-[#F0EDE6] via-[#FFFFFF] to-[#F0EDE6] section-border-top border-b border-[#D5D0C0]">
+    <section className="py-20 bg-gradient-to-r from-[#181818] via-[#1E1E1E] to-[#181818] section-border-top border-b border-[#2A2A2A]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <div
               key={stat.label}
               className={`flex flex-col items-center text-center ${
-                i < stats.length - 1 ? "lg:border-r lg:border-[#D5D0C0]" : ""
+                i < stats.length - 1 ? "lg:border-r lg:border-[#2A2A2A]" : ""
               }`}
             >
               <span className="text-4xl sm:text-5xl font-bold text-gradient-gold mb-2">{stat.value}</span>
-              <span className="text-sm font-semibold text-[#1A2A0A] mb-1">{stat.label}</span>
-              <span className="text-xs text-[#6B7A5A]">{stat.sub}</span>
+              <span className="text-sm font-semibold text-[#F5F5F5] mb-1">{stat.label}</span>
+              <span className="text-xs text-[#909090]">{stat.sub}</span>
             </div>
           ))}
         </div>

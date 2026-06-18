@@ -19,7 +19,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#F5F2EC]">
+    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#111111]">
       <div
         id="hero-bg"
         className="hero-bg absolute inset-0 w-full h-full z-0"
@@ -30,34 +30,34 @@ export default function Hero() {
           alt="Chłodnia z owocami i warzywami z Gruzji"
           fill
           priority
-          className="object-cover object-center opacity-60"
+          className="object-cover object-center opacity-75"
           sizes="100vw"
         />
       </div>
 
-      {/* Gradient Overlay — ciepły kremowy */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F5F2EC]/70 via-[#F5F2EC]/50 to-[#F5F2EC]/80 z-10"></div>
+      {/* Ciemny overlay — zdjęcie dobrze widoczne */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 z-10"></div>
 
       {/* Main Content */}
       <div className="relative z-20 container mx-auto px-4 flex flex-col items-center text-center mt-16">
         {/* Badge */}
-        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#2D5A1B]/20 bg-white/70 backdrop-blur-sm mb-8 animate-fade-in" style={{ animationDelay: '100ms' }}>
-          <span className="w-2 h-2 rounded-full bg-[#E07B39] animate-pulse"></span>
-          <span className="text-sm font-medium tracking-wide text-[#2D5A1B]">
+        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm mb-8 animate-fade-in" style={{ animationDelay: '100ms' }}>
+          <span className="w-2 h-2 rounded-full bg-[#7AB83C] animate-pulse"></span>
+          <span className="text-sm font-medium tracking-wide text-gray-200">
             🇬🇪 Eksport bezpośredni z Gruzji
           </span>
         </div>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-[#1A2A0A] font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
           Smak Kaukazu
-          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#2D5A1B] to-[#E07B39]">
+          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#7AB83C] to-[#F07030]">
             prosto do Twojej firmy.
           </span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-[#5A7A4A] mb-10 animate-fade-in max-w-xl" style={{ animationDelay: '500ms' }}>
+        <p className="text-base md:text-lg text-gray-300 mb-10 animate-fade-in max-w-xl" style={{ animationDelay: '500ms' }}>
           Hurtowe dostawy świeżych i mrożonych owoców oraz warzyw dla hurtowni, przetwórni i restauracji w Polsce i UE.
         </p>
 
@@ -65,40 +65,40 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Link
             href="/sklep"
-            className="px-8 py-4 bg-gradient-to-r from-[#E07B39] to-[#C86020] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-4 bg-gradient-to-r from-[#F07030] to-[#C85020] text-white font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
             Przeglądaj ofertę
           </Link>
           <Link
             href="/kontakt"
-            className="px-8 py-4 bg-white/70 border border-[#2D5A1B] text-[#2D5A1B] font-semibold rounded-lg hover:bg-[#2D5A1B]/10 transition-all duration-300 backdrop-blur-sm"
+            className="px-8 py-4 bg-transparent border border-[#7AB83C] text-[#7AB83C] font-semibold rounded-lg hover:bg-[#7AB83C]/10 transition-all duration-300 backdrop-blur-sm"
           >
             Skontaktuj się
           </Link>
         </div>
       </div>
 
-      {/* Contact Strip — ciemny pasek na dole (celowo ciemny dla kontrastu) */}
+      {/* Contact Strip */}
       <div
         id="bottom-bar"
-        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#2D3A2A] bg-[#1A2A0A]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
+        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#2A2A2A] bg-[#111111]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
           scrollY > 200 ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
         <div className="container mx-auto px-4 h-14 flex items-center justify-between text-sm text-gray-300">
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
-              <MapPin size={16} className="text-[#E07B39]" />
+              <MapPin size={16} className="text-[#7AB83C]" />
               <span>Gruzja / Dostawy do Polski i UE</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={16} className="text-[#E07B39]" />
+              <Phone size={16} className="text-[#F07030]" />
               <span>+995 555 56 83 02</span>
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-gray-400 text-xs">Jakość gwarantowana przez Agrogeopol Ltd</span>
+            <span className="text-gray-500 text-xs">Jakość gwarantowana przez Agrogeopol Ltd</span>
           </div>
         </div>
       </div>

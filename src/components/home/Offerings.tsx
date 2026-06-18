@@ -11,7 +11,7 @@ const offerings = [
     description:
       "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki, pomidory, papryka — sezonowe produkty prosto z Gruzji. Dostawy hurtowe do Polski i UE.",
     points: ["Owoce sezonowe", "Warzywa świeże", "Dostawy hurtowe", "Eksport bezpośredni"],
-    color: "#6AAF47",
+    color: "#7AB83C",
   },
   {
     icon: Snowflake,
@@ -29,24 +29,24 @@ const offerings = [
     description:
       "Uzupełnieniem naszej oferty są mrożone ślimaki i filet ze ślimaków, przeznaczone na eksport. Hodowla prowadzona w kontrolowanych warunkach, wysoka jakość.",
     points: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Produkt uzupełniający"],
-    color: "#E07B39",
+    color: "#F07030",
   },
 ];
 
 export default function Offerings() {
   return (
-    <section className="py-24 bg-[#F0EDE6]">
+    <section className="py-24 bg-[#181818]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">
             Co oferujemy
           </p>
-          <h2 className="text-3xl md:text-5xl font-light text-[#1A2A0A] leading-tight font-serif mb-4">
+          <h2 className="text-3xl md:text-5xl font-light text-[#F5F5F5] leading-tight font-serif mb-4">
             Trzy kategorie,{" "}
-            <span className="text-[#E07B39] italic font-normal">jedno źródło</span>
+            <span className="text-[#F07030] italic font-normal">jedno źródło</span>
           </h2>
-          <p className="max-w-xl mx-auto text-[#6B7A5A] text-base leading-relaxed">
+          <p className="max-w-xl mx-auto text-[#909090] text-base leading-relaxed">
             Gruzja ma wyjątkowy klimat — korzystamy z tego w pełni. Każda kategoria to osobna linia dostawy, osobna jakość kontroli.
           </p>
         </div>
@@ -66,12 +66,12 @@ export default function Offerings() {
                   <span className="text-xs font-semibold uppercase tracking-wider mb-1 block" style={{ color: item.color }}>
                     {item.tag}
                   </span>
-                  <h3 className="text-2xl font-bold text-[#1A2A0A]">{item.title}</h3>
+                  <h3 className="text-2xl font-bold text-[#F5F5F5]">{item.title}</h3>
                 </div>
-                <p className="text-sm text-[#6B7A5A] leading-relaxed flex-1">{item.description}</p>
-                <ul className="space-y-2 pt-2 border-t border-[#D5D0C0]">
+                <p className="text-sm text-[#909090] leading-relaxed flex-1">{item.description}</p>
+                <ul className="space-y-2 pt-2 border-t border-[#2A2A2A]">
                   {item.points.map((pt) => (
-                    <li key={pt} className="flex items-center gap-2 text-sm text-[#6B7A5A]">
+                    <li key={pt} className="flex items-center gap-2 text-sm text-[#909090]">
                       <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
                       {pt}
                     </li>

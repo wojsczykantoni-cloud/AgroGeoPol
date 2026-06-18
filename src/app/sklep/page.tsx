@@ -19,7 +19,7 @@ const sections = [
         title: "Świeże owoce",
         subtitle: "Sezonowo z Gruzji",
         tag: "Świeże",
-        tagColor: "bg-[#2D5A1B]/20 text-[#6AAF47]",
+        tagColor: "bg-[#7AB83C]/20 text-[#7AB83C]",
         headline: "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki",
         description: "Sezonowe owoce gruzińskie najwyższej jakości — prosto z sadów Kaukazu. Bezpośredni eksport, bez pośredników.",
         features: ["Śliwki i brzoskwinie", "Wiśnie i czereśnie", "Jabłka i gruszki", "Dostawa hurtowa"],
@@ -32,7 +32,7 @@ const sections = [
         title: "Świeże warzywa",
         subtitle: "Sezonowo z Gruzji",
         tag: "Świeże",
-        tagColor: "bg-[#2D5A1B]/20 text-[#6AAF47]",
+        tagColor: "bg-[#7AB83C]/20 text-[#7AB83C]",
         headline: "Pomidory, papryka, ogórki, kukurydza",
         description: "Świeże warzywa z gruzińskich upraw — pomidory, papryka, ogórki, kukurydza. Dostępne sezonowo w dostawach hurtowych.",
         features: ["Pomidory i papryka", "Ogórki i kukurydza", "Sezonowa dostępność", "Dostawy hurtowe B2B"],
@@ -83,7 +83,7 @@ const sections = [
         title: "Mrożone ślimaki / Filet",
         subtitle: "Produkt dodatkowy",
         tag: "Oferta uzupełniająca",
-        tagColor: "bg-[#6B7A5A]/10 text-[#6B7A5A]",
+        tagColor: "bg-[#909090]/10 text-[#909090]",
         headline: "Mrożone ślimaki i filet ze ślimaków",
         description: "Produkt przeznaczony na eksport. Ślimaki hodowane w kontrolowanych warunkach, mrożone i pakowane zgodnie z wymogami eksportowymi.",
         features: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Kontrolowane warunki hodowli"],
@@ -108,31 +108,31 @@ const steps = [
 
 export default function SklepPage() {
   return (
-    <div className="pt-24 bg-[#F5F2EC] min-h-screen">
+    <div className="pt-24 bg-[#111111] min-h-screen">
 
       {/* Header */}
-      <section className="py-14 bg-gradient-to-b from-[#F0EDE6] to-[#F5F2EC]">
+      <section className="py-14 bg-gradient-to-b from-[#181818] to-[#111111]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-3">Oferta</p>
-          <h1 className="text-4xl md:text-5xl font-light text-[#1A2A0A] font-serif leading-tight mb-6">
+          <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">Oferta</p>
+          <h1 className="text-4xl md:text-5xl font-light text-[#F5F5F5] font-serif leading-tight mb-6">
             Nasza oferta<br />
-            <span className="text-[#E07B39] italic font-normal">Owoce i warzywa z Gruzji</span>
+            <span className="text-[#F07030] italic font-normal">Owoce i warzywa z Gruzji</span>
           </h1>
-          <p className="text-[#6B7A5A] text-base max-w-2xl leading-relaxed">
+          <p className="text-[#909090] text-base max-w-2xl leading-relaxed">
             Dostarczamy produkty prosto z Gruzji — kraju o wyjątkowym klimacie i tradycjach rolniczych. Oferujemy zarówno świeże dostawy sezonowe, jak i mrożonki IQF na skalę hurtową.
           </p>
         </div>
       </section>
 
       {/* USP strip */}
-      <div className="border-y border-[#D5D0C0] bg-[#F0EDE6]">
+      <div className="border-y border-[#2A2A2A] bg-[#181818]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#D5D0C0]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#2A2A2A]">
             {usps.map((u) => (
               <div key={u.title} className="py-5 px-6 flex flex-col gap-1">
                 <span className="text-xl">{u.emoji}</span>
-                <p className="text-sm font-semibold text-[#1A2A0A]">{u.title}</p>
-                <p className="text-xs text-[#6B7A5A]">{u.desc}</p>
+                <p className="text-sm font-semibold text-[#F5F5F5]">{u.title}</p>
+                <p className="text-xs text-[#909090]">{u.desc}</p>
               </div>
             ))}
           </div>
@@ -140,11 +140,11 @@ export default function SklepPage() {
       </div>
 
       {/* Quick nav */}
-      <div className="sticky top-16 z-30 bg-[#F5F2EC]/95 backdrop-blur-md border-b border-[#D5D0C0]">
+      <div className="sticky top-16 z-30 bg-[#111111]/95 backdrop-blur-md border-b border-[#2A2A2A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex gap-1 overflow-x-auto py-3">
             {sections.map((s) => (
-              <a key={s.id} href={`#${s.id}`} className="flex-shrink-0 px-4 py-2 rounded-full text-sm text-[#6B7A5A] hover:text-[#1A2A0A] hover:bg-[#EAF0E0] transition-all duration-200 no-underline">
+              <a key={s.id} href={`#${s.id}`} className="flex-shrink-0 px-4 py-2 rounded-full text-sm text-[#909090] hover:text-[#F5F5F5] hover:bg-[#1A1A1A] transition-all duration-200 no-underline">
                 {s.label}
               </a>
             ))}
@@ -157,15 +157,15 @@ export default function SklepPage() {
         <section key={section.id} id={section.id} className="py-12" style={{ scrollMarginTop: "8rem" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-xs font-semibold text-[#E07B39] uppercase tracking-widest">{section.label}</span>
-              <div className="flex-1 h-px bg-[#D5D0C0]" />
+              <span className="text-xs font-semibold text-[#F07030] uppercase tracking-widest">{section.label}</span>
+              <div className="flex-1 h-px bg-[#2A2A2A]" />
             </div>
             <div className="flex flex-col gap-5">
               {section.products.map((cat) => (
                 <div
                   key={cat.id}
                   id={cat.id}
-                  className="card-dark rounded-2xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:border-[#E07B39]/20"
+                  className="card-dark rounded-2xl overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:border-[#F07030]/20"
                   style={{ scrollMarginTop: "8rem" }}
                 >
                   <div className="md:w-72 md:flex-shrink-0">
@@ -174,20 +174,20 @@ export default function SklepPage() {
                   <div className="flex-1 p-7 flex flex-col gap-4">
                     <div>
                       <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${cat.tagColor}`}>{cat.tag}</span>
-                      <h2 className="text-xl md:text-2xl font-bold text-[#1A2A0A]">{cat.emoji} {cat.headline}</h2>
-                      <p className="text-sm text-[#E07B39] font-medium mt-1">{cat.subtitle}</p>
+                      <h2 className="text-xl md:text-2xl font-bold text-[#F5F5F5]">{cat.emoji} {cat.headline}</h2>
+                      <p className="text-sm text-[#F07030] font-medium mt-1">{cat.subtitle}</p>
                     </div>
-                    <p className="text-[#6B7A5A] text-sm leading-relaxed">{cat.description}</p>
+                    <p className="text-[#909090] text-sm leading-relaxed">{cat.description}</p>
                     <div className="grid grid-cols-2 gap-2">
                       {cat.features.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-sm text-[#6B7A5A]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#E07B39] shrink-0" />
+                        <div key={f} className="flex items-center gap-2 text-sm text-[#909090]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#F07030] shrink-0" />
                           {f}
                         </div>
                       ))}
                     </div>
-                    <div className="mt-auto pt-4 border-t border-[#D5D0C0]">
-                      <Link href="/kontakt" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#E07B39] to-[#C86020] text-black no-underline hover:opacity-90 transition-all duration-200">
+                    <div className="mt-auto pt-4 border-t border-[#2A2A2A]">
+                      <Link href="/kontakt" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#F07030] to-[#C85020] text-black no-underline hover:opacity-90 transition-all duration-200">
                         {cat.cta} →
                       </Link>
                     </div>
@@ -200,23 +200,23 @@ export default function SklepPage() {
       ))}
 
       {/* How to order */}
-      <section className="py-16 bg-[#F0EDE6] border-t border-[#D5D0C0]">
+      <section className="py-16 bg-[#181818] border-t border-[#2A2A2A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-[#E07B39] uppercase tracking-widest mb-3">Jak zamówić?</p>
-            <h2 className="text-2xl md:text-3xl font-light text-[#1A2A0A] font-serif">Proste jak 3 kroki</h2>
+            <p className="text-sm font-semibold text-[#F07030] uppercase tracking-widest mb-3">Jak zamówić?</p>
+            <h2 className="text-2xl md:text-3xl font-light text-[#F5F5F5] font-serif">Proste jak 3 kroki</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {steps.map((step) => (
               <div key={step.num} className="card-dark rounded-2xl p-7 flex flex-col gap-3">
-                <span className="text-4xl font-bold text-[#E07B39]/30">{step.num}</span>
-                <h3 className="text-lg font-bold text-[#1A2A0A]">{step.title}</h3>
-                <p className="text-sm text-[#6B7A5A] leading-relaxed">{step.desc}</p>
+                <span className="text-4xl font-bold text-[#F07030]/30">{step.num}</span>
+                <h3 className="text-lg font-bold text-[#F5F5F5]">{step.title}</h3>
+                <p className="text-sm text-[#909090] leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/kontakt" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold bg-gradient-to-r from-[#E07B39] to-[#C86020] text-black no-underline hover:opacity-90 transition-all duration-200">
+            <Link href="/kontakt" className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold bg-gradient-to-r from-[#F07030] to-[#C85020] text-black no-underline hover:opacity-90 transition-all duration-200">
               Przejdź do kontaktu →
             </Link>
           </div>
