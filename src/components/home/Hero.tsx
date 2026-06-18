@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Phone } from 'lucide-react';
 
 export default function Hero() {
@@ -25,20 +26,14 @@ export default function Hero() {
         className="hero-bg absolute inset-0 w-full h-full z-0"
         style={{ transform: `translateY(${scrollY * 0.4}px)` }}
       >
-        <div className="w-full h-full bg-gradient-to-br from-[#0D2B0D] via-[#0A1F0A] to-[#081508] flex items-center justify-center">
-          <span className="text-[#1F3A1F] text-sm font-medium text-center px-8 select-none">
-            [Zdjęcie: chłodnia z owocami i warzywami z Gruzji — do dodania]
-          </span>
-        </div>
-        {/* Gdy zdjęcie będzie gotowe, odkomentuj i usuń div powyżej:
         <Image
-          src="/images/hero-chlodnia.jpg"
+          src="/images/hero-chlodnia.jpg.png"
           alt="Chłodnia z owocami i warzywami z Gruzji"
           fill
           priority
           className="object-cover object-center opacity-80"
           sizes="100vw"
-        /> */}
+        />
       </div>
 
       {/* Gradient Overlays */}
