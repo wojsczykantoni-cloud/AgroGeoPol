@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ProductCatalog from "@/components/sklep/ProductCatalog";
 
 export const metadata: Metadata = {
   title: "Oferta — AgroGeoPol Ltd",
@@ -148,6 +149,9 @@ export default function SklepPage() {
                 {s.label}
               </a>
             ))}
+            <a href="#katalog-sezonowy" className="flex-shrink-0 px-4 py-2 rounded-full text-sm text-[#D4C478] hover:text-[#F5F5F5] hover:bg-[#1A1A1A] transition-all duration-200 no-underline font-medium">
+              📅 Kalendarz sezonowości
+            </a>
           </div>
         </div>
       </div>
@@ -198,6 +202,9 @@ export default function SklepPage() {
           </div>
         </section>
       ))}
+
+      {/* Seasonal catalog */}
+      <ProductCatalog />
 
       {/* How to order */}
       <section className="py-16 bg-[#181818] border-t border-[#2A2A2A]">
