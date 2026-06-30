@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ProductTile from './ProductTile';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 
@@ -82,30 +83,14 @@ function Tile({
           e.stopPropagation();
           onToggle(product.id);
         }}
-        className={`w-full flex flex-col items-center gap-2 group transition-opacity duration-300 ${
-          available ? 'opacity-100' : 'opacity-25'
-        }`}
+        className="w-full block"
       >
-        <div
-          className={`relative w-full aspect-square rounded-xl overflow-hidden border transition-all duration-200 ${
-            open
-              ? 'border-[#D4C478] ring-2 ring-[#D4C478]/40'
-              : 'border-[#2A2A2A] group-hover:border-[#D4C478]/50'
-          }`}
-        >
-          <img
-            src={`/images/produkty/${product.image}`}
-            alt={product.name}
-            loading="lazy"
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          {available && (
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8DC432] ring-2 ring-black/40" />
-          )}
-        </div>
-        <span className="text-xs text-[#F5F5F5] text-center leading-tight font-medium">
-          {product.name}
-        </span>
+        <ProductTile
+          image={product.image}
+          name={product.name}
+          dimmed={!available}
+          active={open}
+        />
       </button>
 
       {/* Popover */}
@@ -142,22 +127,13 @@ export default function ProductCatalog() {
 
   const toggle = (id: number) => setOpenId((prev) => (prev === id ? null : id));
 
-  const renderGroup = (
-    list: Product[],
-    index: number,
-    title: string,
-  ) => (
+  const renderGroup = (list: Product[], title: string) => (
     <div className="mb-12 last:mb-0">
       <div className="flex items-center gap-4 mb-6">
-        <div>
-          <p className="text-xs font-semibold text-[#8DC432] uppercase tracking-widest mb-0.5">
-            Kategoria {index} z 2
-          </p>
-          <h3 className="text-2xl font-bold text-[#F5F5F5]">{title}</h3>
-        </div>
+        <h3 className="text-2xl font-bold text-[#F5F5F5]">{title}</h3>
         <div className="flex-1 h-px bg-[#2A2A2A]" />
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
         {list.map((p) => (
           <Tile
             key={p.id}
@@ -192,9 +168,9 @@ export default function ProductCatalog() {
           </p>
         </div>
 
-        {/* Month pills */}
+        {/* Month pills — wyśrodkowane, na mobile scroll poziomy */}
         <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto scrollbar-none mb-10">
-          <div className="flex gap-2 min-w-max pb-1">
+          <div className="flex gap-2 w-max mx-auto pb-1">
             {ROMAN.map((r, i) => {
               const month = i + 1;
               const active = selectedMonth === month;
@@ -216,8 +192,8 @@ export default function ProductCatalog() {
         </div>
 
         {/* Groups */}
-        {renderGroup(fruits, 1, '🍑 Owoce i owoce egzotyczne')}
-        {renderGroup(veggies, 2, '🥦 Warzywa, zioła i orzechy')}
+        {renderGroup(fruits, '🍑 Owoce i owoce egzotyczne')}
+        {renderGroup(veggies, '🥦 Warzywa, zioła i orzechy')}
 
         {/* CTA */}
         <div className="mt-12 pt-8 border-t border-[#1E1E1E] text-center">

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCatalog from "@/components/sklep/ProductCatalog";
+import ProductTile from "@/components/sklep/ProductTile";
 
 export const metadata: Metadata = {
   title: "Oferta — AgroGeoPol Ltd",
@@ -42,6 +43,63 @@ const steps = [
     title: "Ustalamy szczegóły",
     desc: "Omawiamy ilość, termin i sposób dostawy dopasowany do Ciebie.",
   },
+];
+
+// ── Dane kafelków produktów ──
+const freshFruits = [
+  { name: "Brzoskwinia / nektarynka", img: "brzoskwinia.jpg" },
+  { name: "Wiśnia", img: "wisnia.jpg" },
+  { name: "Czereśnia", img: "czeresnia.jpg" },
+  { name: "Śliwka", img: "sliwka.jpg" },
+  { name: "Morela", img: "morela.jpg" },
+  { name: "Gruszka", img: "gruszka.jpg" },
+  { name: "Winogrona", img: "winogrono.jpg" },
+  { name: "Figa", img: "figa.jpg" },
+  { name: "Kaki", img: "kaki.jpg" },
+  { name: "Granat", img: "granat.jpg" },
+  { name: "Truskawka", img: "truskawka.jpg" },
+  { name: "Malina", img: "malina.jpg" },
+  { name: "Borówka", img: "borowka-amerykanska.jpg" },
+  { name: "Jeżyna", img: "jezyna.jpg" },
+  { name: "Morwa", img: "morwa.jpg" },
+];
+
+const freshVeggies = [
+  { name: "Pomidor", img: "pomidor.jpg" },
+  { name: "Papryka", img: "papryka.jpg" },
+  { name: "Ogórek", img: "ogorki.jpg" },
+  { name: "Cukinia", img: "cukinia.jpg" },
+  { name: "Bakłażan", img: "baklazan.jpg" },
+  { name: "Marchew", img: "marchew.jpg" },
+  { name: "Kalafior", img: "kalafior.jpg" },
+  { name: "Brokuł", img: "brokul.jpg" },
+  { name: "Młode ziemniaki", img: "mlode-ziemniaki.jpg" },
+  { name: "Arbuz", img: "arbuz.jpg" },
+  { name: "Melon", img: "melon.jpg" },
+  { name: "Zioła (kolendra, pietruszka)", img: "ziola-kolendra-pietruszka-koperek.jpg" },
+  { name: "Bazylia czerwona", img: "bazylia-czerwona.jpg" },
+];
+
+// IQF — brak własnych zdjęć: stosujemy zdjęcia świeżych z niebieskim filtrem „frost"
+const iqfFruits = [
+  { name: "Truskawka IQF", img: "truskawka.jpg" },
+  { name: "Wiśnia IQF", img: "wisnia.jpg" },
+  { name: "Malina IQF", img: "malina.jpg" },
+  { name: "Śliwka IQF", img: "sliwka.jpg" },
+  { name: "Morela IQF", img: "morela.jpg" },
+  { name: "Brzoskwinia IQF", img: "brzoskwinia.jpg" },
+  { name: "Jeżyna IQF", img: "jezyna.jpg" },
+];
+
+const iqfVeggies = [
+  { name: "Brokuł IQF", img: "brokul.jpg" },
+  { name: "Kalafior IQF", img: "kalafior.jpg" },
+  { name: "Marchew IQF", img: "marchew.jpg" },
+  { name: "Szpinak IQF", img: "ziola-kolendra-pietruszka-koperek.jpg" },
+  { name: "Fasolka szparagowa", img: "hero-kolaz-okladka.jpg" },
+  { name: "Groszek zielony", img: "hero-kolaz-okladka.jpg" },
+  { name: "Kukurydza", img: "hero-kolaz-okladka.jpg" },
+  { name: "Mix warzywny", img: "hero-kolaz-okladka.jpg" },
 ];
 
 export default function SklepPage() {
@@ -146,14 +204,9 @@ export default function SklepPage() {
       <section id="swieze" className="py-14" style={{ scrollMarginTop: "8rem" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-8">
-            <div>
-              <p className="text-xs font-semibold text-[#8DC432] uppercase tracking-widest mb-0.5">
-                Kategoria 1 z 2
-              </p>
-              <h2 className="text-2xl font-bold text-[#F5F5F5]">
-                🍑 Świeże owoce i warzywa
-              </h2>
-            </div>
+            <h2 className="text-2xl font-bold text-[#F5F5F5]">
+              🍑 Świeże owoce i warzywa
+            </h2>
             <div className="flex-1 h-px bg-[#2A2A2A]" />
           </div>
 
@@ -187,34 +240,18 @@ export default function SklepPage() {
                   Sezonowe owoce z gruzińskich sadów — bezpośredni eksport, bez
                   pośredników. Nowe odmiany co kilka tygodni przez cały sezon.
                 </p>
-                <div className="grid grid-cols-2 gap-y-3 gap-x-4">
-                  {[
-                    { label: "Brzoskwinie i nektarynki", img: "brzoskwinia.jpg" },
-                    { label: "Wiśnie i czereśnie", img: "wisnia.jpg" },
-                    { label: "Śliwki i morele", img: "sliwka.jpg" },
-                    { label: "Jabłka i gruszki", img: "gruszka.jpg" },
-                    { label: "Winogrona (biały/czerwony)", img: "winogrono.jpg" },
-                    { label: "Figa, kaki, granat", img: "figa.jpg" },
-                    { label: "Truskawki i maliny", img: "truskawka.jpg" },
-                    { label: "Borówka, jeżyna, morwa", img: "borowka-amerykanska.jpg" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-2.5 text-sm text-[#909090]">
-                      <img
-                        src={`/images/produkty/${item.img}`}
-                        alt=""
-                        className="w-8 h-8 rounded-lg object-cover border border-[#2A2A2A] shrink-0"
-                      />
-                      {item.label}
-                    </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {freshFruits.map((item) => (
+                    <ProductTile key={item.name} image={item.img} name={item.name} />
                   ))}
                 </div>
-                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between">
+                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between gap-4">
                   <p className="text-xs text-[#909090]">
                     Dostępność: kwiecień – listopad
                   </p>
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
+                    className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
                   >
                     Zapytaj o dostawę →
                   </Link>
@@ -251,34 +288,18 @@ export default function SklepPage() {
                   Warzywa z gruzińskich upraw — pomidory, papryka, ogórki i
                   zioła. Część dostępna przez cały rok, część sezonowo.
                 </p>
-                <div className="grid grid-cols-2 gap-y-3 gap-x-4">
-                  {[
-                    { label: "Pomidory i papryka", img: "pomidor.jpg" },
-                    { label: "Ogórki i cukinia", img: "ogorki.jpg" },
-                    { label: "Bakłażan i marchew", img: "baklazan.jpg" },
-                    { label: "Kalafior i brokuł", img: "kalafior.jpg" },
-                    { label: "Młode ziemniaki", img: "mlode-ziemniaki.jpg" },
-                    { label: "Arbuz i melon", img: "arbuz.jpg" },
-                    { label: "Kolendra, pietruszka, koperek", img: "ziola-kolendra-pietruszka-koperek.jpg" },
-                    { label: "Bazylia czerwona", img: "bazylia-czerwona.jpg" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-2.5 text-sm text-[#909090]">
-                      <img
-                        src={`/images/produkty/${item.img}`}
-                        alt=""
-                        className="w-8 h-8 rounded-lg object-cover border border-[#2A2A2A] shrink-0"
-                      />
-                      {item.label}
-                    </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {freshVeggies.map((item) => (
+                    <ProductTile key={item.name} image={item.img} name={item.name} />
                   ))}
                 </div>
-                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between">
+                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between gap-4">
                   <p className="text-xs text-[#909090]">
                     Dostępność: marzec – listopad
                   </p>
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
+                    className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
                   >
                     Zapytaj o dostawę →
                   </Link>
@@ -293,14 +314,9 @@ export default function SklepPage() {
       <section id="mrozonki" className="py-14 bg-[#0D0D0D]" style={{ scrollMarginTop: "8rem" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 mb-8">
-            <div>
-              <p className="text-xs font-semibold text-[#4A9EC9] uppercase tracking-widest mb-0.5">
-                Kategoria 2 z 2
-              </p>
-              <h2 className="text-2xl font-bold text-[#F5F5F5]">
-                ❄️ Mrożonki IQF — całoroczna dostępność
-              </h2>
-            </div>
+            <h2 className="text-2xl font-bold text-[#F5F5F5]">
+              ❄️ Mrożonki IQF — całoroczna dostępność
+            </h2>
             <div className="flex-1 h-px bg-[#2A2A2A]" />
           </div>
 
@@ -333,30 +349,18 @@ export default function SklepPage() {
                   wartości odżywcze i smak. Idealne dla przetwórni, gastronomii
                   i sieci handlowych.
                 </p>
-                <div className="grid grid-cols-2 gap-y-2.5 gap-x-4">
-                  {[
-                    "Truskawki IQF",
-                    "Wiśnie IQF",
-                    "Maliny IQF",
-                    "Śliwki IQF",
-                    "Morele IQF",
-                    "Brzoskwinie IQF",
-                    "Porzeczki IQF",
-                    "Jeżyny IQF",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-sm text-[#909090]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A9EC9] shrink-0" />
-                      {item}
-                    </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {iqfFruits.map((item) => (
+                    <ProductTile key={item.name} image={item.img} name={item.name} frost />
                   ))}
                 </div>
-                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between">
+                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between gap-4">
                   <p className="text-xs text-[#909090]">
                     Dostępność: cały rok (własne chłodnie)
                   </p>
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
+                    className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
                   >
                     Zapytaj o cenę →
                   </Link>
@@ -392,30 +396,18 @@ export default function SklepPage() {
                   dostępność dzięki własnym chłodniom. Idealne do mixów i
                   gotowych dań.
                 </p>
-                <div className="grid grid-cols-2 gap-y-2.5 gap-x-4">
-                  {[
-                    "Fasolka szparagowa",
-                    "Groszek zielony",
-                    "Kukurydza",
-                    "Mix warzywny",
-                    "Brokuł IQF",
-                    "Kalafior IQF",
-                    "Marchew IQF",
-                    "Szpinak IQF",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-sm text-[#909090]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4A9EC9] shrink-0" />
-                      {item}
-                    </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {iqfVeggies.map((item) => (
+                    <ProductTile key={item.name} image={item.img} name={item.name} frost />
                   ))}
                 </div>
-                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between">
+                <div className="mt-auto pt-5 border-t border-[#2A2A2A] flex items-center justify-between gap-4">
                   <p className="text-xs text-[#909090]">
                     Dostępność: cały rok (własne chłodnie)
                   </p>
                   <Link
                     href="/kontakt"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
+                    className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
                   >
                     Zapytaj o cenę →
                   </Link>
