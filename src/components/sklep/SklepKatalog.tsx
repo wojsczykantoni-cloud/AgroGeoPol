@@ -69,15 +69,28 @@ export default function SklepKatalog() {
     return p.miesiace.includes(ref) ? 'dostepny' : 'niedostepny';
   };
 
+  // Czy produkt jest dostępny wg aktywnego filtra (do sortowania).
+  const czyDostepny = (p: Produkt): boolean => {
+    if (p.caloryRok) return true;
+    if (!mounted) return true;
+    if (dostMode === 'calyRok') return false;
+    const ref = dostMode === 'miesiac' ? miesiac : currentMonth;
+    return p.miesiace.includes(ref);
+  };
+
   // Filtrowanie zawężające (kategoria + szukaj) — ukrywa.
+  // Sortowanie: dostępne najpierw, niedostępne (przyciemnione) na końcu.
   const widoczne = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return produkty.filter((p) => {
-      if (kat !== 'all' && p.kategoria !== kat) return false;
-      if (q && !`${p.nazwa} ${p.nazwaLac ?? ''}`.toLowerCase().includes(q)) return false;
-      return true;
-    });
-  }, [kat, search]);
+    return produkty
+      .filter((p) => {
+        if (kat !== 'all' && p.kategoria !== kat) return false;
+        if (q && !`${p.nazwa} ${p.nazwaLac ?? ''}`.toLowerCase().includes(q)) return false;
+        return true;
+      })
+      .sort((a, b) => Number(czyDostepny(b)) - Number(czyDostepny(a)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kat, search, mounted, dostMode, miesiac, currentMonth]);
 
   const liczbaTeraz = useMemo(
     () => produkty.filter((p) => dostepnyWMiesiacu(p, currentMonth)).length,
