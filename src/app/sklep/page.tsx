@@ -165,7 +165,11 @@ export default function SklepPage() {
               style={{ scrollMarginTop: "8rem" }}
             >
               <div className="h-24 bg-gradient-to-br from-[#8DC432]/20 to-[#8DC432]/5 flex items-center px-7 gap-4 border-b border-[#2A2A2A]">
-                <span className="text-4xl">🍑</span>
+                <img
+                  src="/images/produkty/winogrono.jpg"
+                  alt="Świeże owoce z Gruzji"
+                  className="w-12 h-12 rounded-xl object-cover border border-[#2A2A2A] shrink-0"
+                />
                 <div>
                   <h3 className="text-xl font-bold text-[#F5F5F5]">
                     Świeże owoce
@@ -183,20 +187,24 @@ export default function SklepPage() {
                   Sezonowe owoce z gruzińskich sadów — bezpośredni eksport, bez
                   pośredników. Nowe odmiany co kilka tygodni przez cały sezon.
                 </p>
-                <div className="grid grid-cols-2 gap-y-2.5 gap-x-4">
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4">
                   {[
-                    "Brzoskwinie i nektarynki",
-                    "Wiśnie i czereśnie",
-                    "Śliwki i morele",
-                    "Jabłka i gruszki",
-                    "Winogrona (biały/czerwony)",
-                    "Figa, kaki, granat",
-                    "Truskawki i maliny",
-                    "Borówka, jeżyna, morwa",
+                    { label: "Brzoskwinie i nektarynki", img: "brzoskwinia.jpg" },
+                    { label: "Wiśnie i czereśnie", img: "wisnia.jpg" },
+                    { label: "Śliwki i morele", img: "sliwka.jpg" },
+                    { label: "Jabłka i gruszki", img: "gruszka.jpg" },
+                    { label: "Winogrona (biały/czerwony)", img: "winogrono.jpg" },
+                    { label: "Figa, kaki, granat", img: "figa.jpg" },
+                    { label: "Truskawki i maliny", img: "truskawka.jpg" },
+                    { label: "Borówka, jeżyna, morwa", img: "borowka-amerykanska.jpg" },
                   ].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-sm text-[#909090]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8DC432] shrink-0" />
-                      {item}
+                    <div key={item.label} className="flex items-center gap-2.5 text-sm text-[#909090]">
+                      <img
+                        src={`/images/produkty/${item.img}`}
+                        alt=""
+                        className="w-8 h-8 rounded-lg object-cover border border-[#2A2A2A] shrink-0"
+                      />
+                      {item.label}
                     </div>
                   ))}
                 </div>
@@ -221,7 +229,11 @@ export default function SklepPage() {
               style={{ scrollMarginTop: "8rem" }}
             >
               <div className="h-24 bg-gradient-to-br from-[#8DC432]/20 to-[#8DC432]/5 flex items-center px-7 gap-4 border-b border-[#2A2A2A]">
-                <span className="text-4xl">🌽</span>
+                <img
+                  src="/images/produkty/pomidor.jpg"
+                  alt="Świeże warzywa z Gruzji"
+                  className="w-12 h-12 rounded-xl object-cover border border-[#2A2A2A] shrink-0"
+                />
                 <div>
                   <h3 className="text-xl font-bold text-[#F5F5F5]">
                     Świeże warzywa
@@ -239,20 +251,24 @@ export default function SklepPage() {
                   Warzywa z gruzińskich upraw — pomidory, papryka, ogórki i
                   zioła. Część dostępna przez cały rok, część sezonowo.
                 </p>
-                <div className="grid grid-cols-2 gap-y-2.5 gap-x-4">
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4">
                   {[
-                    "Pomidory i papryka",
-                    "Ogórki i cukinia",
-                    "Bakłażan i marchew",
-                    "Kalafior i brokuł",
-                    "Młode ziemniaki",
-                    "Arbuz i melon",
-                    "Kolendra, pietruszka, koperek",
-                    "Bazylia czerwona",
+                    { label: "Pomidory i papryka", img: "pomidor.jpg" },
+                    { label: "Ogórki i cukinia", img: "ogorki.jpg" },
+                    { label: "Bakłażan i marchew", img: "baklazan.jpg" },
+                    { label: "Kalafior i brokuł", img: "kalafior.jpg" },
+                    { label: "Młode ziemniaki", img: "mlode-ziemniaki.jpg" },
+                    { label: "Arbuz i melon", img: "arbuz.jpg" },
+                    { label: "Kolendra, pietruszka, koperek", img: "ziola-kolendra-pietruszka-koperek.jpg" },
+                    { label: "Bazylia czerwona", img: "bazylia-czerwona.jpg" },
                   ].map((item) => (
-                    <div key={item} className="flex items-center gap-2 text-sm text-[#909090]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#8DC432] shrink-0" />
-                      {item}
+                    <div key={item.label} className="flex items-center gap-2.5 text-sm text-[#909090]">
+                      <img
+                        src={`/images/produkty/${item.img}`}
+                        alt=""
+                        className="w-8 h-8 rounded-lg object-cover border border-[#2A2A2A] shrink-0"
+                      />
+                      {item.label}
                     </div>
                   ))}
                 </div>

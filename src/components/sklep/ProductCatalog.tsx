@@ -1,178 +1,235 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-const MONTHS = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'];
+const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
 
 type Category = 'owoc' | 'warzywo';
-type Filter = 'all' | 'owoc' | 'warzywo';
 
 type Product = {
   id: number;
   name: string;
   note?: string;
+  image: string;
   category: Category;
   availability: string;
   months: number[];
 };
 
 const products: Product[] = [
-  // Owoce — sorted by first month of availability
-  { id: 1,  name: 'Truskawka',                                    category: 'owoc',    availability: 'kwiecień – czerwiec',                    months: [4,5,6] },
-  { id: 2,  name: 'Morwa',                                        category: 'owoc',    availability: 'połowa maja – czerwiec',                  months: [5,6] },
-  { id: 3,  name: 'Czereśnia',                                    category: 'owoc',    availability: 'maj – czerwiec',                          months: [5,6] },
-  { id: 4,  name: 'Malina',                                       category: 'owoc',    availability: 'maj – lipiec',                            months: [5,6,7] },
-  { id: 5,  name: 'Borówka amerykańska',                          category: 'owoc',    availability: 'maj – czerwiec',                          months: [5,6] },
-  { id: 6,  name: 'Morela',                                       category: 'owoc',    availability: 'koniec maja – połowa czerwca',             months: [5,6] },
-  { id: 7,  name: 'Alucha',         note: 'Prunus vachuschti',   category: 'owoc',    availability: 'maj – połowa czerwca',                    months: [5,6] },
-  { id: 8,  name: 'Muszmala',                                     category: 'owoc',    availability: 'koniec maja – początek lipca',             months: [5,6,7] },
-  { id: 9,  name: 'Tkemali',        note: 'gruzińska mirabelka', category: 'owoc',    availability: 'połowa czerwca – koniec lipca',            months: [6,7] },
-  { id: 10, name: 'Wiśnia',                                       category: 'owoc',    availability: 'czerwiec – sierpień',                     months: [6,7,8] },
-  { id: 11, name: 'Brzoskwinia',    note: 'nowy podgatunek co ~3 tygodnie', category: 'owoc', availability: 'połowa czerwca – połowa sierpnia', months: [6,7,8] },
-  { id: 12, name: 'Nektarynka',     note: 'nowy podgatunek co ~3 tygodnie', category: 'owoc', availability: 'połowa czerwca – koniec sierpnia', months: [6,7,8] },
-  { id: 13, name: 'Arbuz',                                        category: 'owoc',    availability: 'połowa czerwca – połowa października',    months: [6,7,8,9,10] },
-  { id: 14, name: 'Figa',                                         category: 'owoc',    availability: 'połowa lipca – koniec września',           months: [7,8,9] },
-  { id: 15, name: 'Gruszka',                                      category: 'owoc',    availability: 'lipiec – październik',                    months: [7,8,9,10] },
-  { id: 16, name: 'Melon',                                        category: 'owoc',    availability: 'połowa lipca – październik',               months: [7,8,9,10] },
-  { id: 17, name: 'Jeżyna',                                       category: 'owoc',    availability: 'lipiec – wrzesień',                       months: [7,8,9] },
-  { id: 18, name: 'Śliwka',                                       category: 'owoc',    availability: 'połowa sierpnia – połowa września',        months: [8,9] },
-  { id: 19, name: 'Unabi',                                        category: 'owoc',    availability: 'połowa sierpnia – połowa września',        months: [8,9] },
-  { id: 20, name: 'Winogrona',      note: 'biały / czerwony / różowy, deserowe i winne', category: 'owoc', availability: 'początek września – połowa października', months: [9,10] },
-  { id: 21, name: 'Kiwi',                                         category: 'owoc',    availability: 'połowa września – początek listopada',     months: [9,10,11] },
-  { id: 22, name: 'Fejoa',                                        category: 'owoc',    availability: 'połowa września – połowa listopada',       months: [9,10,11] },
-  { id: 23, name: 'Kaki',           note: 'hurma i karaliok, także suszone', category: 'owoc', availability: 'połowa października – połowa listopada', months: [10,11] },
-  { id: 24, name: 'Granat',                                       category: 'owoc',    availability: 'październik – koniec listopada',           months: [10,11] },
-  { id: 25, name: 'Mandarynka',     note: 'bezpestkowa',         category: 'owoc',    availability: 'połowa listopada – styczeń',               months: [11,12,1] },
-  { id: 26, name: 'Limonka',                                      category: 'owoc',    availability: 'połowa listopada – styczeń',               months: [11,12,1] },
-  // Warzywa i zioła
-  { id: 27, name: 'Ogórki',                                       category: 'warzywo', availability: 'marzec – październik',                    months: [3,4,5,6,7,8,9,10] },
-  { id: 28, name: 'Młode ziemniaki',                              category: 'warzywo', availability: 'od marca',                                months: [3,4,5,6,7,8,9,10,11,12] },
-  { id: 29, name: 'Pomidor',                                      category: 'warzywo', availability: 'wiosna – jesień',                         months: [4,5,6,7,8,9,10,11] },
-  { id: 30, name: 'Marchew',                                      category: 'warzywo', availability: 'cały rok',                                months: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  { id: 31, name: 'Kalafior',                                     category: 'warzywo', availability: 'cały rok',                                months: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  { id: 32, name: 'Brokuł',                                       category: 'warzywo', availability: 'cały rok',                                months: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  { id: 33, name: 'Bazylia czerwona',                             category: 'warzywo', availability: 'cały rok',                                months: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  { id: 34, name: 'Kolendra / pietruszka / koperek',              category: 'warzywo', availability: 'cały rok',                                months: [1,2,3,4,5,6,7,8,9,10,11,12] },
-  { id: 35, name: 'Młoda kapusta',                                category: 'warzywo', availability: 'koniec kwietnia – lipiec',                months: [4,5,6,7] },
-  { id: 36, name: 'Cukinia',                                      category: 'warzywo', availability: 'czerwiec – wrzesień',                     months: [6,7,8,9] },
-  { id: 37, name: 'Papryka',        note: 'zielona / czerwona',  category: 'warzywo', availability: 'czerwiec – październik',                  months: [6,7,8,9,10] },
-  { id: 38, name: 'Bakłażan',                                     category: 'warzywo', availability: 'połowa czerwca – listopad',               months: [6,7,8,9,10,11] },
-  { id: 39, name: 'Orzech włoski / laskowy',                      category: 'warzywo', availability: 'połowa września – połowa listopada',      months: [9,10,11] },
+  // ── Owoce (sorted by first month) ──
+  { id: 1,  name: 'Truskawka',            image: 'truskawka.jpg',            category: 'owoc', availability: 'kwiecień – czerwiec',                    months: [4,5,6] },
+  { id: 2,  name: 'Morwa',                image: 'morwa.jpg',                category: 'owoc', availability: 'połowa maja – czerwiec',                  months: [5,6] },
+  { id: 3,  name: 'Czereśnia',            image: 'czeresnia.jpg',            category: 'owoc', availability: 'maj – czerwiec',                          months: [5,6] },
+  { id: 4,  name: 'Malina',               image: 'malina.jpg',               category: 'owoc', availability: 'maj – lipiec',                            months: [5,6,7] },
+  { id: 5,  name: 'Borówka amerykańska',  image: 'borowka-amerykanska.jpg',  category: 'owoc', availability: 'maj – czerwiec',                          months: [5,6] },
+  { id: 6,  name: 'Morela',               image: 'morela.jpg',               category: 'owoc', availability: 'koniec maja – połowa czerwca',             months: [5,6] },
+  { id: 7,  name: 'Alucha', note: 'Prunus vachuschti', image: 'alycza.jpg',  category: 'owoc', availability: 'maj – połowa czerwca',                    months: [5,6] },
+  { id: 8,  name: 'Muszmala',             image: 'muszmala.jpg',             category: 'owoc', availability: 'koniec maja – początek lipca',             months: [5,6,7] },
+  { id: 9,  name: 'Tkemali', note: 'gruzińska mirabelka', image: 'tkemali.jpg', category: 'owoc', availability: 'połowa czerwca – koniec lipca',         months: [6,7] },
+  { id: 10, name: 'Wiśnia',               image: 'wisnia.jpg',               category: 'owoc', availability: 'czerwiec – sierpień',                     months: [6,7,8] },
+  { id: 11, name: 'Brzoskwinia', note: 'nowy podgatunek co ~3 tyg.', image: 'brzoskwinia.jpg', category: 'owoc', availability: 'połowa czerwca – połowa sierpnia', months: [6,7,8] },
+  { id: 12, name: 'Nektarynka', note: 'nowy podgatunek co ~3 tyg.', image: 'nektarynka.jpg', category: 'owoc', availability: 'połowa czerwca – koniec sierpnia', months: [6,7,8] },
+  { id: 13, name: 'Arbuz',                image: 'arbuz.jpg',                category: 'owoc', availability: 'połowa czerwca – połowa października',    months: [6,7,8,9,10] },
+  { id: 14, name: 'Figa',                 image: 'figa.jpg',                 category: 'owoc', availability: 'połowa lipca – koniec września',           months: [7,8,9] },
+  { id: 15, name: 'Gruszka',              image: 'gruszka.jpg',              category: 'owoc', availability: 'lipiec – październik',                    months: [7,8,9,10] },
+  { id: 16, name: 'Melon',                image: 'melon.jpg',                category: 'owoc', availability: 'połowa lipca – październik',               months: [7,8,9,10] },
+  { id: 17, name: 'Jeżyna',               image: 'jezyna.jpg',               category: 'owoc', availability: 'lipiec – wrzesień',                       months: [7,8,9] },
+  { id: 18, name: 'Śliwka',               image: 'sliwka.jpg',               category: 'owoc', availability: 'połowa sierpnia – połowa września',        months: [8,9] },
+  { id: 19, name: 'Unabi',                image: 'unabi.jpg',                category: 'owoc', availability: 'połowa sierpnia – połowa września',        months: [8,9] },
+  { id: 20, name: 'Winogrona', note: 'biały / czerwony / różowy', image: 'winogrono.jpg', category: 'owoc', availability: 'początek września – połowa października', months: [9,10] },
+  { id: 21, name: 'Kiwi',                 image: 'kiwi.jpg',                 category: 'owoc', availability: 'połowa września – początek listopada',     months: [9,10,11] },
+  { id: 22, name: 'Fejoa',                image: 'feijoa.jpg',               category: 'owoc', availability: 'połowa września – połowa listopada',       months: [9,10,11] },
+  { id: 23, name: 'Kaki', note: 'hurma i karaliok, także suszone', image: 'kaki.jpg', category: 'owoc', availability: 'połowa października – połowa listopada', months: [10,11] },
+  { id: 24, name: 'Granat',               image: 'granat.jpg',               category: 'owoc', availability: 'październik – koniec listopada',           months: [10,11] },
+  { id: 25, name: 'Mandarynka', note: 'bezpestkowa', image: 'mandarynka.jpg', category: 'owoc', availability: 'połowa listopada – styczeń',             months: [11,12,1] },
+  { id: 26, name: 'Limonka',              image: 'limonka.jpg',              category: 'owoc', availability: 'połowa listopada – styczeń',               months: [11,12,1] },
+  // ── Warzywa, zioła i orzechy ──
+  { id: 27, name: 'Ogórki',               image: 'ogorki.jpg',               category: 'warzywo', availability: 'marzec – październik',                 months: [3,4,5,6,7,8,9,10] },
+  { id: 28, name: 'Młode ziemniaki',      image: 'mlode-ziemniaki.jpg',      category: 'warzywo', availability: 'od marca',                            months: [3,4,5,6,7,8,9,10,11,12] },
+  { id: 29, name: 'Pomidor',              image: 'pomidor.jpg',              category: 'warzywo', availability: 'wiosna – jesień',                     months: [4,5,6,7,8,9,10,11] },
+  { id: 30, name: 'Marchew',              image: 'marchew.jpg',              category: 'warzywo', availability: 'cały rok',                            months: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  { id: 31, name: 'Kalafior',             image: 'kalafior.jpg',             category: 'warzywo', availability: 'cały rok',                            months: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  { id: 32, name: 'Brokuł',               image: 'brokul.jpg',               category: 'warzywo', availability: 'cały rok',                            months: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  { id: 33, name: 'Bazylia czerwona',     image: 'bazylia-czerwona.jpg',     category: 'warzywo', availability: 'cały rok',                            months: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  { id: 34, name: 'Kolendra, pietruszka, koperek', image: 'ziola-kolendra-pietruszka-koperek.jpg', category: 'warzywo', availability: 'cały rok',     months: [1,2,3,4,5,6,7,8,9,10,11,12] },
+  { id: 35, name: 'Młoda kapusta',        image: 'mloda-kapusta.jpg',        category: 'warzywo', availability: 'koniec kwietnia – lipiec',            months: [4,5,6,7] },
+  { id: 36, name: 'Cukinia',              image: 'cukinia.jpg',              category: 'warzywo', availability: 'czerwiec – wrzesień',                 months: [6,7,8,9] },
+  { id: 37, name: 'Papryka', note: 'zielona / czerwona', image: 'papryka.jpg', category: 'warzywo', availability: 'czerwiec – październik',           months: [6,7,8,9,10] },
+  { id: 38, name: 'Bakłażan',             image: 'baklazan.jpg',             category: 'warzywo', availability: 'połowa czerwca – listopad',            months: [6,7,8,9,10,11] },
+  { id: 39, name: 'Orzech włoski / laskowy', image: 'orzechy-wloski-laskowy.jpg', category: 'warzywo', availability: 'połowa września – połowa listopada', months: [9,10,11] },
 ];
 
-export default function ProductCatalog() {
-  const [filter, setFilter] = useState<Filter>('all');
+const fruits = products.filter((p) => p.category === 'owoc');
+const veggies = products.filter((p) => p.category === 'warzywo');
 
-  const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+function Tile({
+  product,
+  available,
+  open,
+  onToggle,
+}: {
+  product: Product;
+  available: boolean;
+  open: boolean;
+  onToggle: (id: number) => void;
+}) {
+  return (
+    <div className="relative">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle(product.id);
+        }}
+        className={`w-full flex flex-col items-center gap-2 group transition-opacity duration-300 ${
+          available ? 'opacity-100' : 'opacity-25'
+        }`}
+      >
+        <div
+          className={`relative w-full aspect-square rounded-xl overflow-hidden border transition-all duration-200 ${
+            open
+              ? 'border-[#D4C478] ring-2 ring-[#D4C478]/40'
+              : 'border-[#2A2A2A] group-hover:border-[#D4C478]/50'
+          }`}
+        >
+          <img
+            src={`/images/produkty/${product.image}`}
+            alt={product.name}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          {available && (
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#8DC432] ring-2 ring-black/40" />
+          )}
+        </div>
+        <span className="text-xs text-[#F5F5F5] text-center leading-tight font-medium">
+          {product.name}
+        </span>
+      </button>
+
+      {/* Popover */}
+      {open && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute z-30 left-1/2 -translate-x-1/2 top-full mt-2 w-44 rounded-xl border border-[#2A2A2A] bg-[#1E1E1E] shadow-2xl shadow-black/50 p-3 text-center animate-fade-in"
+        >
+          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-[#1E1E1E] border-l border-t border-[#2A2A2A]" />
+          <p className="text-sm font-semibold text-[#F5F5F5] mb-0.5">{product.name}</p>
+          {product.note && (
+            <p className="text-[10px] text-[#909090] italic mb-1">{product.note}</p>
+          )}
+          <p className="text-xs text-[#909090] mb-0.5">Dostępność:</p>
+          <p className="text-xs font-medium text-[#D4C478] leading-snug">
+            {product.availability}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function ProductCatalog() {
+  const [selectedMonth, setSelectedMonth] = useState<number>(new Date().getMonth() + 1);
+  const [openId, setOpenId] = useState<number | null>(null);
+
+  // Close popover on outside click
+  useEffect(() => {
+    const close = () => setOpenId(null);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, []);
+
+  const toggle = (id: number) => setOpenId((prev) => (prev === id ? null : id));
+
+  const renderGroup = (
+    list: Product[],
+    index: number,
+    title: string,
+  ) => (
+    <div className="mb-12 last:mb-0">
+      <div className="flex items-center gap-4 mb-6">
+        <div>
+          <p className="text-xs font-semibold text-[#8DC432] uppercase tracking-widest mb-0.5">
+            Kategoria {index} z 2
+          </p>
+          <h3 className="text-2xl font-bold text-[#F5F5F5]">{title}</h3>
+        </div>
+        <div className="flex-1 h-px bg-[#2A2A2A]" />
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-5">
+        {list.map((p) => (
+          <Tile
+            key={p.id}
+            product={p}
+            available={p.months.includes(selectedMonth)}
+            open={openId === p.id}
+            onToggle={toggle}
+          />
+        ))}
+      </div>
+    </div>
+  );
 
   return (
-    <section id="katalog-sezonowy" className="py-16 bg-[#111111]" style={{ scrollMarginTop: '8rem' }}>
+    <section
+      id="katalog-sezonowy"
+      className="py-16 bg-[#0D0D0D] border-t border-[#1E1E1E]"
+      style={{ scrollMarginTop: '8rem' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* Header */}
-        <div className="mb-10">
-          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-2">Katalog sezonowy</p>
+        <div className="mb-8">
+          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-2">
+            Kalendarz sezonowości
+          </p>
           <h2 className="text-3xl font-light text-[#F5F5F5] font-serif mb-2">
             Dostępność owoców i warzyw z Gruzji
           </h2>
-          <p className="text-[#909090] text-sm mb-8 max-w-xl">
-            {products.filter(p => p.category === 'owoc').length} gatunków owoców &amp; {products.filter(p => p.category === 'warzywo').length} warzyw i ziół. Daty oparte na gruzińskim kalendarzu zbiorów.
+          <p className="text-[#909090] text-sm max-w-xl">
+            {fruits.length} gatunków owoców &amp; {veggies.length} warzyw, ziół i orzechów.
+            Wybierz miesiąc, aby zobaczyć, co jest dostępne. Kliknij kafelek po dokładny okres zbiorów.
           </p>
+        </div>
 
-          {/* Filter buttons */}
-          <div className="flex flex-wrap gap-3">
-            {(['all', 'owoc', 'warzywo'] as Filter[]).map(f => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  filter === f
-                    ? 'bg-[#D4C478] text-[#111111] shadow-lg'
-                    : 'bg-[#1E1E1E] text-[#909090] border border-[#2A2A2A] hover:text-[#F5F5F5] hover:border-[#D4C478]/40'
-                }`}
-              >
-                {f === 'all' ? `Wszystkie (${products.length})` : f === 'owoc' ? `Owoce (${products.filter(p=>p.category==='owoc').length})` : `Warzywa i zioła (${products.filter(p=>p.category==='warzywo').length})`}
-              </button>
-            ))}
+        {/* Month pills */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto scrollbar-none mb-10">
+          <div className="flex gap-2 min-w-max pb-1">
+            {ROMAN.map((r, i) => {
+              const month = i + 1;
+              const active = selectedMonth === month;
+              return (
+                <button
+                  key={r}
+                  onClick={() => setSelectedMonth(month)}
+                  className={`shrink-0 w-12 h-10 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    active
+                      ? 'bg-gradient-to-br from-[#D4C478] to-[#B8A860] text-[#111111] shadow-lg shadow-[#D4C478]/20'
+                      : 'bg-[#1E1E1E] text-[#909090] border border-[#2A2A2A] hover:text-[#F5F5F5] hover:border-[#D4C478]/40'
+                  }`}
+                >
+                  {r}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Month header — desktop only */}
-        <div className="hidden xl:flex items-center gap-4 px-4 mb-1">
-          <div className="flex-1" />
-          <div className="flex gap-1">
-            {MONTHS.map(m => (
-              <div key={m} className="w-7 text-center text-[10px] text-[#909090] font-medium">{m}</div>
-            ))}
-          </div>
-        </div>
+        {/* Groups */}
+        {renderGroup(fruits, 1, '🍑 Owoce i owoce egzotyczne')}
+        {renderGroup(veggies, 2, '🥦 Warzywa, zioła i orzechy')}
 
-        {/* Product rows */}
-        <div className="divide-y divide-[#1E1E1E]">
-          {filtered.map(product => (
-            <div
-              key={product.id}
-              className="flex flex-col xl:flex-row xl:items-center gap-2 xl:gap-4 px-4 py-3 rounded-lg hover:bg-[#1A1A1A] transition-colors group"
-            >
-              {/* Name + tag */}
-              <div className="flex items-center gap-3 flex-1 min-w-0">
-                <span className={`shrink-0 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide ${
-                  product.category === 'owoc'
-                    ? 'bg-[#8DC432]/15 text-[#8DC432]'
-                    : 'bg-[#D4C478]/15 text-[#D4C478]'
-                }`}>
-                  {product.category === 'owoc' ? 'Owoc' : 'Warzywo'}
-                </span>
-                <div className="min-w-0">
-                  <span className="text-[#F5F5F5] font-medium text-sm">{product.name}</span>
-                  {product.note && (
-                    <span className="text-[#909090] text-xs ml-2 hidden sm:inline">({product.note})</span>
-                  )}
-                </div>
-              </div>
-
-              {/* Availability text — mobile / hidden on XL */}
-              <div className="xl:hidden text-xs text-[#8A9070] pl-[calc(2rem+12px)]">
-                {product.availability}
-              </div>
-
-              {/* Month bar */}
-              <div className="flex items-center gap-1 pl-[calc(2rem+12px)] xl:pl-0">
-                {Array.from({ length: 12 }, (_, i) => i + 1).map(month => {
-                  const active = product.months.includes(month);
-                  return (
-                    <div
-                      key={month}
-                      title={`${MONTHS[month - 1]}${active ? ` ✓ ${product.availability}` : ''}`}
-                      className={`w-7 h-5 rounded-sm transition-all duration-200 ${
-                        active
-                          ? product.category === 'owoc'
-                            ? 'bg-[#8DC432] group-hover:bg-[#9DCC42]'
-                            : 'bg-[#D4C478] group-hover:bg-[#E0D088]'
-                          : 'bg-[#1E1E1E]'
-                      }`}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Legend */}
-        <div className="mt-8 pt-6 border-t border-[#1E1E1E] flex flex-wrap gap-6 text-xs text-[#909090]">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-4 rounded-sm bg-[#8DC432]" />
-            <span>Owoce — miesiące dostępności</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-4 rounded-sm bg-[#D4C478]" />
-            <span>Warzywa i zioła — miesiące dostępności</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-4 rounded-sm bg-[#1E1E1E] border border-[#2A2A2A]" />
-            <span>Niedostępne w danym miesiącu</span>
-          </div>
+        {/* CTA */}
+        <div className="mt-12 pt-8 border-t border-[#1E1E1E] text-center">
+          <p className="text-[#909090] text-sm mb-4">
+            Chcesz poznać aktualną dostępność i ceny hurtowe?
+          </p>
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-semibold bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] no-underline hover:opacity-90 transition-opacity"
+          >
+            Zapytaj o dostawę →
+          </Link>
         </div>
       </div>
     </section>
