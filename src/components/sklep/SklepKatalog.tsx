@@ -44,6 +44,16 @@ const pillActive = 'bg-[#D4C478] text-[#111111]';
 const pillIdle =
   'bg-[#1E1E1E] text-[#909090] border border-[#2A2A2A] hover:text-[#F5F5F5] hover:border-[#D4C478]/40';
 
+// Kolory kategorii spójne z katalogiem PDF (paleta naturalna).
+// „Wszystkie" = zieleń marki, spinająca całość.
+const KAT_KOLOR: Record<KatFiltr, string> = {
+  all: '#4a7c3f',
+  owoc: '#b23a3a',
+  warzywo: '#4a7c3f',
+  ziolo: '#7a9233',
+  orzech: '#8a5a3b',
+};
+
 export default function SklepKatalog() {
   const [mounted, setMounted] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(1);
@@ -131,7 +141,8 @@ export default function SklepKatalog() {
                 <button
                   key={k.id}
                   onClick={() => setKat(k.id)}
-                  className={`${pill} ${kat === k.id ? pillActive : pillIdle}`}
+                  className={`${pill} ${kat === k.id ? 'text-white font-semibold' : pillIdle}`}
+                  style={kat === k.id ? { backgroundColor: KAT_KOLOR[k.id] } : undefined}
                 >
                   {k.label}
                 </button>
