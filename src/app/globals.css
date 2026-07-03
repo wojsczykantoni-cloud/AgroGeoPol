@@ -7,9 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-montserrat);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: var(--font-playfair);
+  --font-heading: var(--font-playfair);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -41,43 +42,45 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --color-gold: #D4C478;
-  --color-gold-light: #E0D498;
-  --color-green-accent: #8DC432;
-  --color-dark-bg: #111111;
-  --color-dark-card: #1E1E1E;
-  --color-dark-section: #1A1A1A;
+  --color-gold: #C2A34F;
+  --color-gold-light: #D8BE78;
+  --color-brass: #C2A34F;
+  --color-green: #2A5A2E;
+  --color-green-deep: #22401F;
+  --color-green-accent: #3E7D42;
+  --color-cream: #FAF6F0;
+  --color-beige-2: #F3ECE0;
 }
 
 :root {
-  --background: #111111;
-  --foreground: #F5F5F5;
-  --card: #1E1E1E;
-  --card-foreground: #F5F5F5;
-  --popover: #1E1E1E;
-  --popover-foreground: #F5F5F5;
-  --primary: #D4C478;
-  --primary-foreground: #111111;
-  --secondary: #8DC432;
-  --secondary-foreground: #111111;
-  --muted: #1A1A1A;
-  --muted-foreground: #909090;
-  --accent: #D4C478;
-  --accent-foreground: #111111;
+  --background: #FAF6F0;
+  --foreground: #26302A;
+  --card: #FFFFFF;
+  --card-foreground: #26302A;
+  --popover: #FFFFFF;
+  --popover-foreground: #26302A;
+  --primary: #2A5A2E;
+  --primary-foreground: #FAF6F0;
+  --secondary: #C2A34F;
+  --secondary-foreground: #26302A;
+  --muted: #F3ECE0;
+  --muted-foreground: #6B6A5F;
+  --accent: #C2A34F;
+  --accent-foreground: #26302A;
   --destructive: #c0392b;
   --destructive-foreground: #FFFFFF;
-  --border: #2A2A2A;
-  --input: #2A2A2A;
-  --ring: #D4C478;
-  --radius: 0.625rem;
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #F5F5F5;
-  --sidebar-primary: #D4C478;
-  --sidebar-primary-foreground: #111111;
-  --sidebar-accent: #1A1A1A;
-  --sidebar-accent-foreground: #F5F5F5;
-  --sidebar-border: #2A2A2A;
-  --sidebar-ring: #D4C478;
+  --border: #E7DECF;
+  --input: #E7DECF;
+  --ring: #C2A34F;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #26302A;
+  --sidebar-primary: #2A5A2E;
+  --sidebar-primary-foreground: #FAF6F0;
+  --sidebar-accent: #F3ECE0;
+  --sidebar-accent-foreground: #26302A;
+  --sidebar-border: #E7DECF;
+  --sidebar-ring: #C2A34F;
 }
 
 @layer base {
@@ -96,42 +99,44 @@
 
 @layer utilities {
   .text-gold {
-    color: #D4C478;
+    color: #B8923C;
   }
   .bg-dark-card {
-    background-color: #1E1E1E;
+    background-color: #FFFFFF;
   }
   .bg-dark-section {
-    background-color: #1A1A1A;
+    background-color: #F3ECE0;
   }
   .border-gold {
-    border-color: #D4C478;
+    border-color: #C2A34F;
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, #8DC432 0%, #D4C478 60%, #8DC432 100%);
+    background: linear-gradient(135deg, #2A5A2E 0%, #C2A34F 55%, #A8893A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .btn-gold {
-    background: linear-gradient(135deg, #D4C478 0%, #B8A860 50%, #D4C478 100%);
-    color: #111111;
+    background: linear-gradient(135deg, #CBAE5C 0%, #B8923C 100%);
+    color: #241E12;
     font-weight: 600;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: box-shadow 0.25s, transform 0.25s;
   }
   .btn-gold:hover {
-    opacity: 0.9;
+    box-shadow: 0 10px 26px -10px rgba(168, 137, 58, 0.6);
     transform: translateY(-1px);
   }
   .card-dark {
-    background-color: #1E1E1E;
-    border: 1px solid #2A2A2A;
+    background-color: #FFFFFF;
+    border: 1px solid #EBE3D5;
+    box-shadow: 0 1px 2px rgba(38, 48, 42, 0.04);
   }
   .card-dark:hover {
-    border-color: #D4C47860;
+    border-color: #C2A34F80;
+    box-shadow: 0 14px 30px -14px rgba(42, 90, 46, 0.18);
   }
   .section-border-top {
-    border-top: 1px solid #2A2A2A;
+    border-top: 1px solid #E7DECF;
   }
   .animate-fade-up {
     animation: fadeUp 0.6s ease-out both;

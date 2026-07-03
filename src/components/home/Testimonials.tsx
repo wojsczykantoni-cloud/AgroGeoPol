@@ -29,17 +29,17 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-[#141F14]">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#C9A84C] uppercase tracking-widest mb-3">
+          <p className="text-sm font-semibold text-[#B8923C] uppercase tracking-widest mb-3">
             Opinie klientów
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F5F0E8] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-normal text-[#2A5A2E] font-serif mb-4">
             Co mówią o nas
           </h2>
-          <p className="max-w-xl mx-auto text-[#9A9A8A] text-base leading-relaxed">
+          <p className="max-w-xl mx-auto text-[#6B6A5F] text-base leading-relaxed">
             Prawdziwe opinie od restauracji, firm i klientów indywidualnych.
           </p>
         </div>
@@ -49,28 +49,28 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <AnimateOnScroll key={t.name} animation="fade-up" delay={i * 150}>
               <div
-                className="h-full card-dark rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-black/30 hover:-translate-y-0.5"
+                className="h-full card-dark rounded-2xl p-6 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1"
               >
               {/* Stars */}
               <div className="flex gap-0.5">
                 {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} size={16} className="text-[#C9A84C] fill-[#C9A84C]" />
+                  <Star key={i} size={16} className="text-[#C2A34F] fill-[#C2A34F]" />
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-[#9A9A8A] leading-relaxed flex-1 italic">
+              <p className="text-sm text-[#6B6A5F] leading-relaxed flex-1 italic">
                 &ldquo;{t.content}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-3 border-t border-[#1F2E1F]">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C9A84C] to-[#3D7A3D] flex items-center justify-center text-[#0A0F0A] text-sm font-bold shrink-0">
+              <div className="flex items-center gap-3 pt-3 border-t border-[#EBE3D5]">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#C2A34F] to-[#2A5A2E] flex items-center justify-center text-[#FAF6F0] text-sm font-bold shrink-0">
                   {t.name[0]}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#F5F0E8]">{t.name}</p>
-                  <p className="text-xs text-[#9A9A8A]">{t.role}</p>
+                  <p className="text-sm font-semibold text-[#26302A]">{t.name}</p>
+                  <p className="text-xs text-[#6B6A5F]">{t.role}</p>
                 </div>
               </div>
             </div>

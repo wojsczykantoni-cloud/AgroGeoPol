@@ -48,26 +48,26 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section className="py-24 bg-[#111111]">
+    <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold text-[#D4C478] uppercase tracking-widest mb-3">Dlaczego my?</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#F5F5F5] mb-4">
+          <p className="text-sm font-semibold text-[#B8923C] uppercase tracking-widest mb-3">Dlaczego my?</p>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#2A5A2E] mb-4">
             8 powodów, by wybrać AgroGeoPol Ltd
           </h2>
-          <p className="max-w-xl mx-auto text-[#909090] text-base leading-relaxed">
+          <p className="max-w-xl mx-auto text-[#6B6A5F] text-base leading-relaxed">
             Łączymy doświadczenie w eksporcie z nowoczesnym podejściem do jakości i obsługi klienta.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {reasons.map((reason, i) => (
             <AnimateOnScroll key={reason.title} animation="fade-up" delay={i * 100}>
-              <div className="h-full card-dark rounded-xl p-5 flex flex-col gap-3 transition-all duration-300 hover:border-[#D4C478]/30 hover:-translate-y-0.5">
-                <div className="w-10 h-10 rounded-lg bg-[#D4C478]/10 flex items-center justify-center">
-                  <reason.icon size={20} className="text-[#D4C478]" />
+              <div className="h-full card-dark rounded-xl p-5 flex flex-col gap-3 transition-all duration-300 hover:-translate-y-0.5">
+                <div className="w-10 h-10 rounded-lg bg-[#2A5A2E]/8 flex items-center justify-center">
+                  <reason.icon size={20} className="text-[#2A5A2E]" />
                 </div>
-                <h3 className="text-base font-semibold text-[#F5F5F5]">{reason.title}</h3>
-                <p className="text-sm text-[#909090] leading-relaxed">{reason.description}</p>
+                <h3 className="text-base font-semibold text-[#26302A]">{reason.title}</h3>
+                <p className="text-sm text-[#6B6A5F] leading-relaxed">{reason.description}</p>
               </div>
             </AnimateOnScroll>
           ))}
