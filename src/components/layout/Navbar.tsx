@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -56,7 +57,14 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full overflow-hidden border border-gold/30">
-              <img src="/images/ikonka-nowa.png" alt="AgroGeoPol Ltd Logo" className="w-full h-full object-cover" />
+              <Image
+                src="/images/ikonka.png"
+                alt="AgroGeoPol Ltd — logo"
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <span className={`text-xl font-bold tracking-wide transition-colors group-hover:text-gold ${logoText}`}>
               AgroGeoPol Ltd

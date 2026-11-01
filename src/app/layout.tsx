@@ -23,7 +23,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AgroGeoPol Ltd | Owoce i Warzywa z Gruzji",
+  metadataBase: new URL("https://agrogeopol.com"),
+  title: {
+    default: "AgroGeoPol Ltd | Owoce i Warzywa z Gruzji",
+    template: "%s | AgroGeoPol Ltd",
+  },
   description:
     "AgroGeoPol Ltd — eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe, mrożonki IQF, bezpośrednio od producenta.",
   keywords: [
@@ -32,8 +36,39 @@ export const metadata: Metadata = {
     "mrożonki IQF",
     "eksport owoców",
     "hurtownia owoców",
-    "Agrogeopol",
+    "AgroGeoPol",
   ],
+  authors: [{ name: "AgroGeoPol Ltd" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pl_PL",
+    url: "https://agrogeopol.com",
+    siteName: "AgroGeoPol Ltd",
+    title: "AgroGeoPol Ltd | Owoce i Warzywa z Gruzji",
+    description:
+      "Eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe B2B, mrożonki IQF, bezpośrednio od producenta.",
+    images: [
+      {
+        url: "/images/hero-chlodnia.jpg",
+        width: 1920,
+        height: 1089,
+        alt: "AgroGeoPol Ltd — owoce i warzywa z Gruzji",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AgroGeoPol Ltd | Owoce i Warzywa z Gruzji",
+    description:
+      "Eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Dostawy hurtowe B2B, mrożonki IQF.",
+    images: ["/images/hero-chlodnia.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
 };
 
 // Ustawia motyw przed pierwszym renderem — brak migotania (FOUC).
