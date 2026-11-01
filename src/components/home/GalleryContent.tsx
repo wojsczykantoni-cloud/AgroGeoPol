@@ -3,36 +3,41 @@
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll';
+import { useI18n } from '@/i18n/LanguageProvider';
 
-const categories = ['Wszystkie', 'Hodowla', 'Produkty', 'Gastronomia'];
+type CatKey = 'all' | 'hodowla' | 'produkty' | 'gastronomia';
+const CAT_KEYS: CatKey[] = ['all', 'hodowla', 'produkty', 'gastronomia'];
 
-const galleryItems = [
-  { id: 1, src: '/images/gallery-11.jpeg', title: 'Zespół AgroGeoPol', category: 'Hodowla' },
-  { id: 2, src: '/images/gallery-03.jpeg', title: 'Hodowla ślimaków — widok ogólny', category: 'Hodowla' },
-  { id: 3, src: '/images/gallery-01.jpeg', title: 'Ślimaki Helix aspersa na regałach', category: 'Hodowla' },
-  { id: 4, src: '/images/gallery-02.jpeg', title: 'Ślimak w dłoni', category: 'Hodowla' },
-  { id: 5, src: '/images/gallery-04.jpeg', title: 'Ślimaki na powierzchniach hodowlanych', category: 'Hodowla' },
-  { id: 6, src: '/images/gallery-farm.png', title: 'Ferma ślimaków — widok z góry', category: 'Hodowla' },
-  { id: 7, src: '/images/gallery-05.jpeg', title: 'Ślimaki w siatkach transportowych', category: 'Produkty' },
-  { id: 8, src: '/images/gallery-06.jpeg', title: 'Hodowla na tackach', category: 'Hodowla' },
-  { id: 9, src: '/images/gallery-07.jpeg', title: 'Pakowanie ślimaków', category: 'Produkty' },
-  { id: 10, src: '/images/gallery-08.jpeg', title: 'Zbiór ślimaków — sezon', category: 'Hodowla' },
-  { id: 11, src: '/images/gallery-09.jpeg', title: 'Logistyka i transport', category: 'Produkty' },
-  { id: 12, src: '/images/gallery-10.jpeg', title: 'Ślimaki gotowe do wysyłki', category: 'Produkty' },
-  { id: 13, src: '/images/gallery-cosmetics.png', title: 'Kosmetyki ze śluzu ślimaka', category: 'Produkty' },
-  { id: 14, src: '/images/gallery-escargot.png', title: 'Escargot — danie restauracyjne', category: 'Gastronomia' },
-  { id: 15, src: '/images/gallery-shells.png', title: 'Muszle dekoracyjne do podania', category: 'Gastronomia' },
-  { id: 16, src: '/images/georgian-fruits.png', title: 'Owoce z Gruzji', category: 'Produkty' },
+// Zdjęcia + kategoria (klucz). Tytuły pochodzą ze słownika (t.gallery.items wg kolejności).
+const galleryMeta: { id: number; src: string; cat: Exclude<CatKey, 'all'> }[] = [
+  { id: 1, src: '/images/gallery-11.jpeg', cat: 'hodowla' },
+  { id: 2, src: '/images/gallery-03.jpeg', cat: 'hodowla' },
+  { id: 3, src: '/images/gallery-01.jpeg', cat: 'hodowla' },
+  { id: 4, src: '/images/gallery-02.jpeg', cat: 'hodowla' },
+  { id: 5, src: '/images/gallery-04.jpeg', cat: 'hodowla' },
+  { id: 6, src: '/images/gallery-farm.png', cat: 'hodowla' },
+  { id: 7, src: '/images/gallery-05.jpeg', cat: 'produkty' },
+  { id: 8, src: '/images/gallery-06.jpeg', cat: 'hodowla' },
+  { id: 9, src: '/images/gallery-07.jpeg', cat: 'produkty' },
+  { id: 10, src: '/images/gallery-08.jpeg', cat: 'hodowla' },
+  { id: 11, src: '/images/gallery-09.jpeg', cat: 'produkty' },
+  { id: 12, src: '/images/gallery-10.jpeg', cat: 'produkty' },
+  { id: 13, src: '/images/gallery-cosmetics.png', cat: 'produkty' },
+  { id: 14, src: '/images/gallery-escargot.png', cat: 'gastronomia' },
+  { id: 15, src: '/images/gallery-shells.png', cat: 'gastronomia' },
+  { id: 16, src: '/images/georgian-fruits.png', cat: 'produkty' },
 ];
 
 export default function GalleryContent() {
-  const [activeCategory, setActiveCategory] = useState('Wszystkie');
+  const { t } = useI18n();
+  const [activeCategory, setActiveCategory] = useState<CatKey>('all');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const filteredItems = activeCategory === 'Wszystkie' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === activeCategory);
+  const allItems = galleryMeta.map((m, i) => ({ ...m, title: t.gallery.items[i] }));
+  const filteredItems = activeCategory === 'all'
+    ? allItems
+    : allItems.filter((item) => item.cat === activeCategory);
 
   const openLightbox = (index: number) => {
     setCurrentImageIndex(index);
@@ -59,7 +64,7 @@ export default function GalleryContent() {
     <>
       {/* Category Filters */}
       <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {categories.map((cat) => (
+        {CAT_KEYS.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
@@ -69,7 +74,7 @@ export default function GalleryContent() {
                 : 'bg-card text-gray-400 hover:bg-border hover:text-white border border-border'
             }`}
           >
-            {cat}
+            {t.gallery.categories[cat]}
           </button>
         ))}
       </div>
@@ -94,7 +99,7 @@ export default function GalleryContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-2 border-transparent group-hover:border-gold/50 rounded-xl">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <span className="text-xs text-gold font-semibold tracking-wider uppercase mb-2 block">
-                    {item.category}
+                    {t.gallery.categories[item.cat]}
                   </span>
                   <h3 className="text-white font-medium text-lg leading-tight flex items-center justify-between">
                     {item.title}
@@ -149,7 +154,7 @@ export default function GalleryContent() {
             {/* Caption */}
             <div className="absolute bottom-[-2rem] left-0 w-full text-center pointer-events-none">
               <p className="text-gold text-sm uppercase tracking-wider font-semibold mb-1">
-                {filteredItems[currentImageIndex].category}
+                {t.gallery.categories[filteredItems[currentImageIndex].cat]}
               </p>
               <h2 className="text-white text-xl font-light">
                 {filteredItems[currentImageIndex].title}
