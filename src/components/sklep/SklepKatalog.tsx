@@ -4,39 +4,22 @@ import { useEffect, useMemo, useState } from 'react';
 import { Search } from 'lucide-react';
 import {
   produkty,
-  MIESIACE_PELNE,
   MIESIACE_RZYM,
   dostepnyWMiesiacu,
   type Produkt,
   type Kategoria,
 } from '@/data/produkty';
+import { useI18n } from '@/i18n/LanguageProvider';
+import { tProdukt } from '@/i18n/produkty-i18n';
+import { badgeProduktyDostepne, liczbaPokazano } from '@/i18n/plural';
 import ProductCard, { type Stan } from './ProductCard';
 import ProductModal from './ProductModal';
 
 type KatFiltr = 'all' | Kategoria;
 type DostMode = 'teraz' | 'calyRok' | 'miesiac';
 
-const KATEGORIE: { id: KatFiltr; label: string }[] = [
-  { id: 'all', label: 'Wszystkie' },
-  { id: 'owoc', label: 'Owoce' },
-  { id: 'warzywo', label: 'Warzywa' },
-  { id: 'ziolo', label: 'Zioła' },
-  { id: 'orzech', label: 'Orzechy' },
-];
-
-const DOSTEPNOSC: { id: DostMode; label: string }[] = [
-  { id: 'teraz', label: 'Dostępne teraz' },
-  { id: 'calyRok', label: 'Cały rok' },
-  { id: 'miesiac', label: 'Wybierz miesiąc ▾' },
-];
-
-function odmianaProdukt(n: number): string {
-  if (n === 1) return 'produkt';
-  const d = n % 10;
-  const s = n % 100;
-  if (d >= 2 && d <= 4 && !(s >= 12 && s <= 14)) return 'produkty';
-  return 'produktów';
-}
+const KAT_IDS: KatFiltr[] = ['all', 'owoc', 'warzywo', 'ziolo', 'orzech'];
+const DOST_IDS: DostMode[] = ['teraz', 'calyRok', 'miesiac'];
 
 const pill =
   'shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold';
@@ -55,6 +38,7 @@ const KAT_KOLOR: Record<KatFiltr, string> = {
 };
 
 export default function SklepKatalog() {
+  const { t, lang } = useI18n();
   const [mounted, setMounted] = useState(false);
   const [currentMonth, setCurrentMonth] = useState(1);
   const [kat, setKat] = useState<KatFiltr>('all');
@@ -95,12 +79,15 @@ export default function SklepKatalog() {
     return produkty
       .filter((p) => {
         if (kat !== 'all' && p.kategoria !== kat) return false;
-        if (q && !`${p.nazwa} ${p.nazwaLac ?? ''}`.toLowerCase().includes(q)) return false;
+        if (q) {
+          const nazwaLoc = tProdukt(p, lang).nazwa;
+          if (!`${nazwaLoc} ${p.nazwa} ${p.nazwaLac ?? ''}`.toLowerCase().includes(q)) return false;
+        }
         return true;
       })
       .sort((a, b) => Number(czyDostepny(b)) - Number(czyDostepny(a)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [kat, search, mounted, dostMode, miesiac, currentMonth]);
+  }, [kat, search, mounted, dostMode, miesiac, currentMonth, lang]);
 
   const liczbaTeraz = useMemo(
     () => produkty.filter((p) => dostepnyWMiesiacu(p, currentMonth)).length,
@@ -115,16 +102,16 @@ export default function SklepKatalog() {
       <section className="bg-gradient-to-b from-muted to-background border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <h1 className="text-3xl md:text-4xl font-light text-foreground font-serif">Sklep</h1>
+            <h1 className="text-3xl md:text-4xl font-light text-foreground font-serif">{t.shop.title}</h1>
             <p className="text-muted-foreground text-base mt-1">
-              Świeże owoce i warzywa sezonowe z Gruzji
+              {t.shop.subtitle}
             </p>
           </div>
           {mounted && (
             <div className="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-2 rounded-full border border-gold/30 bg-gold/10">
               <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
               <span className="text-sm font-medium text-gold">
-                {MIESIACE_PELNE[currentMonth - 1]} — {liczbaTeraz} {odmianaProdukt(liczbaTeraz)} dostępne
+                {badgeProduktyDostepne(lang, liczbaTeraz, t.months.full[currentMonth - 1])}
               </span>
             </div>
           )}
@@ -137,14 +124,14 @@ export default function SklepKatalog() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
             {/* [1] Kategoria */}
             <div className="flex gap-1.5 overflow-x-auto scrollbar-none -mx-4 px-4 lg:mx-0 lg:px-0">
-              {KATEGORIE.map((k) => (
+              {KAT_IDS.map((id) => (
                 <button
-                  key={k.id}
-                  onClick={() => setKat(k.id)}
-                  className={`${pill} ${kat === k.id ? 'text-white font-semibold' : pillIdle}`}
-                  style={kat === k.id ? { backgroundColor: KAT_KOLOR[k.id] } : undefined}
+                  key={id}
+                  onClick={() => setKat(id)}
+                  className={`${pill} ${kat === id ? 'text-white font-semibold' : pillIdle}`}
+                  style={kat === id ? { backgroundColor: KAT_KOLOR[id] } : undefined}
                 >
-                  {k.label}
+                  {t.shop.categories[id]}
                 </button>
               ))}
             </div>
@@ -152,13 +139,13 @@ export default function SklepKatalog() {
             {/* [2] Dostępność + [3] Szukaj */}
             <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
               <div className="flex gap-1.5 overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
-                {DOSTEPNOSC.map((d) => (
+                {DOST_IDS.map((id) => (
                   <button
-                    key={d.id}
-                    onClick={() => setDostMode(d.id)}
-                    className={`${pill} ${dostMode === d.id ? pillActive : pillIdle}`}
+                    key={id}
+                    onClick={() => setDostMode(id)}
+                    className={`${pill} ${dostMode === id ? pillActive : pillIdle}`}
                   >
-                    {d.label}
+                    {id === 'teraz' ? t.shop.availNow : id === 'calyRok' ? t.shop.allYear : `${t.shop.pickMonth} ▾`}
                   </button>
                 ))}
               </div>
@@ -170,8 +157,8 @@ export default function SklepKatalog() {
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Szukaj produktu…"
-                  aria-label="Szukaj produktu"
+                  placeholder={t.shop.search}
+                  aria-label={t.shop.search}
                   className="w-full pl-9 pr-3 py-2 rounded-full text-sm bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus:border-gold"
                 />
               </div>
@@ -188,7 +175,7 @@ export default function SklepKatalog() {
                     <button
                       key={r}
                       onClick={() => setMiesiac(m)}
-                      aria-label={MIESIACE_PELNE[i]}
+                      aria-label={t.months.full[i]}
                       className={`shrink-0 w-11 h-9 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                         miesiac === m
                           ? 'bg-gradient-to-br from-gold to-gold-deep text-[#14170F] shadow-lg shadow-gold/20'
@@ -209,12 +196,12 @@ export default function SklepKatalog() {
       <section className="py-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs text-muted-foreground mb-5">
-            Pokazano {widoczne.length} z {produkty.length} produktów
+            {liczbaPokazano(lang, widoczne.length, produkty.length)}
           </p>
 
           {widoczne.length === 0 ? (
             <div className="py-20 text-center text-muted-foreground">
-              Brak produktów spełniających wybrane kryteria.
+              {t.shop.empty}
             </div>
           ) : (
             <div
