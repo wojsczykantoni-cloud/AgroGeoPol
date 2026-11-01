@@ -13,10 +13,10 @@ const actions = [
     value: "+995 555 56 83 02",
     sub: "Odbieramy pon–pt 8:00–18:00",
     href: "tel:+995555568302",
-    color: "from-[#2A5A2E]/12 to-[#2A5A2E]/4",
-    border: "hover:border-[#C2A34F]/50",
-    iconColor: "text-[#2A5A2E]",
-    iconBg: "bg-[#2A5A2E]/12",
+    color: "from-secondary/20 to-secondary/5",
+    border: "hover:border-gold/40",
+    iconColor: "text-gold",
+    iconBg: "bg-secondary/20",
     cta: "Połącz teraz",
   },
   {
@@ -37,10 +37,10 @@ const actions = [
     value: "kontakt@agrogeopol.pl",
     sub: "Odpowiadamy w ciągu 24h",
     href: "mailto:kontakt@agrogeopol.pl",
-    color: "from-[#C2A34F]/12 to-[#C2A34F]/4",
-    border: "hover:border-[#C2A34F]/50",
-    iconColor: "text-[#B8923C]",
-    iconBg: "bg-[#C2A34F]/12",
+    color: "from-gold/10 to-gold/5",
+    border: "hover:border-gold/40",
+    iconColor: "text-gold",
+    iconBg: "bg-gold/10",
     cta: "Wyślij e-mail",
   },
 ];
@@ -55,9 +55,9 @@ export default function KontaktPage() {
     <div className="pt-24 bg-background min-h-screen">
 
       {/* Header */}
-      <section className="py-12 bg-gradient-to-b from-[#F3ECE0] to-[#FAF6F0]">
+      <section className="py-12 bg-gradient-to-b from-muted to-background">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold text-[#B8923C] uppercase tracking-widest">Kontakt</p>
+          <p className="text-sm font-semibold text-gold uppercase tracking-widest">Kontakt</p>
         </div>
       </section>
 
@@ -70,15 +70,15 @@ export default function KontaktPage() {
               href={action.href}
               target={action.href.startsWith("http") ? "_blank" : undefined}
               rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className={`card-dark rounded-2xl p-6 flex items-center gap-5 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#2A5A2E]/15 bg-gradient-to-r ${action.color} ${action.border}`}
+              className={`card-dark rounded-2xl p-6 flex items-center gap-5 no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/30 bg-gradient-to-r ${action.color} ${action.border}`}
             >
               <div className={`w-14 h-14 rounded-2xl ${action.iconBg} flex items-center justify-center shrink-0`}>
                 <action.icon size={26} className={action.iconColor} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-semibold text-[#6B6A5F] uppercase tracking-widest mb-0.5">{action.label}</p>
-                <p className="text-lg font-bold text-[#26302A] truncate">{action.value}</p>
-                <p className="text-sm text-[#6B6A5F]">{action.sub}</p>
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-0.5">{action.label}</p>
+                <p className="text-lg font-bold text-foreground truncate">{action.value}</p>
+                <p className="text-sm text-muted-foreground">{action.sub}</p>
               </div>
               <span className={`hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border shrink-0 ${action.iconColor} border-current/30`}>
                 {action.cta} →
@@ -94,12 +94,12 @@ export default function KontaktPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {details.map((d) => (
               <div key={d.label} className="card-dark rounded-xl p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-[#2A5A2E]/8 flex items-center justify-center shrink-0">
-                  <d.icon size={18} className="text-[#2A5A2E]" />
+                <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center shrink-0">
+                  <d.icon size={18} className="text-gold" />
                 </div>
                 <div>
-                  <p className="text-xs text-[#6B6A5F] mb-0.5">{d.label}</p>
-                  <p className="text-sm font-medium text-[#26302A]">{d.value}</p>
+                  <p className="text-xs text-muted-foreground mb-0.5">{d.label}</p>
+                  <p className="text-sm font-medium text-foreground">{d.value}</p>
                 </div>
               </div>
             ))}

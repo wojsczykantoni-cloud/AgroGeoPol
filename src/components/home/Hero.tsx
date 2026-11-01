@@ -19,7 +19,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#111111]">
+    <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden bg-[#0D100B]">
       <div
         id="hero-bg"
         className="hero-bg absolute inset-0 w-full h-full z-0"
@@ -43,7 +43,7 @@ export default function Hero() {
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
           Smak Kaukazu
-          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#8DC432] to-[#D4C478]">
+          <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#8DC432] to-[#D4AF61]">
             prosto do Twojej firmy.
           </span>
         </h1>
@@ -57,7 +57,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '700ms' }}>
           <Link
             href="/sklep"
-            className="px-8 py-4 bg-gradient-to-r from-[#D4C478] to-[#B8A860] text-[#111111] font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
+            className="px-8 py-4 bg-gradient-to-r from-[#D4AF61] to-[#B8923C] text-[#0D100B] font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
             Przeglądaj ofertę
           </Link>
@@ -73,7 +73,7 @@ export default function Hero() {
       {/* Contact Strip */}
       <div
         id="bottom-bar"
-        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#2A2A2A] bg-[#111111]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
+        className={`fixed bottom-0 left-0 w-full z-50 border-t border-[#2C3627] bg-[#0D100B]/95 backdrop-blur-md hidden md:block transition-all duration-500 ease-in-out ${
           scrollY > 200 ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
         }`}
       >
@@ -85,7 +85,7 @@ export default function Hero() {
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Phone size={16} className="text-[#D4C478]" />
+              <Phone size={16} className="text-[#D4AF61]" />
               <span>+995 555 56 83 02</span>
             </a>
           </div>

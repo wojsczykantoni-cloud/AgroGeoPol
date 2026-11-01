@@ -12,13 +12,13 @@ export default function GalleryPage() {
       <div className="container mx-auto px-4">
         {/* Header section */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-sm font-semibold text-[#B8923C] uppercase tracking-widest mb-4">
+          <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-4">
             Nasza Galeria
           </p>
-          <h1 className="text-4xl md:text-5xl font-normal text-[#2A5A2E] font-serif mb-6">
+          <h1 className="text-4xl md:text-5xl font-light text-foreground font-serif mb-6">
             Autentyczność i transparentność
           </h1>
-          <p className="text-[#6B6A5F] text-lg">
+          <p className="text-muted-foreground text-lg">
             Zapraszamy za kulisy AgroGeoPol. Zobacz na własne oczy, jak wygląda nasza codzienna praca z pasją na polskiej hodowli ślimaków.
           </p>
         </div>

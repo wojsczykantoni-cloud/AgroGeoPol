@@ -66,8 +66,8 @@ export default function GalleryContent() {
             onClick={() => setActiveCategory(cat)}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === cat
-                ? 'bg-[#2A5A2E] text-white shadow-[0_6px_16px_rgba(42,90,46,0.25)]'
-                : 'bg-white text-[#6B6A5F] hover:bg-[#F3ECE0] hover:text-[#26302A] border border-[#E7DECF]'
+                ? 'bg-gold text-white shadow-[0_0_15px_rgba(240,112,48,0.3)]'
+                : 'bg-card text-gray-400 hover:bg-border hover:text-white border border-border'
             }`}
           >
             {cat}
@@ -80,7 +80,7 @@ export default function GalleryContent() {
         {filteredItems.map((item, index) => (
           <AnimateOnScroll key={item.id} animation="scale-in" delay={index * 50}>
             <div 
-              className="relative group rounded-xl overflow-hidden cursor-pointer bg-[#F3ECE0] break-inside-avoid"
+              className="relative group rounded-xl overflow-hidden cursor-pointer bg-muted break-inside-avoid"
               onClick={() => openLightbox(index)}
             >
               {/* Using standard img for masonry to let browser handle natural aspect ratio */}
@@ -92,9 +92,9 @@ export default function GalleryContent() {
               />
               
               {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#16290F]/85 via-[#16290F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-2 border-transparent group-hover:border-[#C2A34F]/60 rounded-xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 border-2 border-transparent group-hover:border-gold/50 rounded-xl">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-xs text-[#D8BE78] font-semibold tracking-wider uppercase mb-2 block">
+                  <span className="text-xs text-gold font-semibold tracking-wider uppercase mb-2 block">
                     {item.category}
                   </span>
                   <h3 className="text-white font-medium text-lg leading-tight flex items-center justify-between">
@@ -149,7 +149,7 @@ export default function GalleryContent() {
             
             {/* Caption */}
             <div className="absolute bottom-[-2rem] left-0 w-full text-center pointer-events-none">
-              <p className="text-[#D8BE78] text-sm uppercase tracking-wider font-semibold mb-1">
+              <p className="text-gold text-sm uppercase tracking-wider font-semibold mb-1">
                 {filteredItems[currentImageIndex].category}
               </p>
               <h2 className="text-white text-xl font-light">

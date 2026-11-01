@@ -39,10 +39,10 @@ function odmianaProdukt(n: number): string {
 }
 
 const pill =
-  'shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C2A34F]';
-const pillActive = 'bg-[#2A5A2E] text-white';
+  'shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold';
+const pillActive = 'bg-gold text-[#14170F]';
 const pillIdle =
-  'bg-white text-[#6B6A5F] border border-[#E7DECF] hover:text-[#26302A] hover:border-[#C2A34F]/50';
+  'bg-card text-muted-foreground border border-border hover:text-foreground hover:border-gold/40';
 
 // Kolory kategorii spójne z katalogiem PDF (paleta naturalna).
 // „Wszystkie" = zieleń marki, spinająca całość.
@@ -112,18 +112,18 @@ export default function SklepKatalog() {
   return (
     <>
       {/* ── SEKCJA 1 — HERO PASEK ── */}
-      <section className="bg-gradient-to-b from-[#F3ECE0] to-[#FAF6F0] border-b border-[#E7DECF]">
+      <section className="bg-gradient-to-b from-muted to-background border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
-            <h1 className="text-3xl md:text-4xl font-normal text-[#2A5A2E] font-serif">Sklep</h1>
-            <p className="text-[#6B6A5F] text-base mt-1">
+            <h1 className="text-3xl md:text-4xl font-light text-foreground font-serif">Sklep</h1>
+            <p className="text-muted-foreground text-base mt-1">
               Świeże owoce i warzywa sezonowe z Gruzji
             </p>
           </div>
           {mounted && (
-            <div className="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-2 rounded-full border border-[#C2A34F]/40 bg-[#C2A34F]/12">
-              <span className="w-2 h-2 rounded-full bg-[#2A5A2E] animate-pulse" />
-              <span className="text-sm font-medium text-[#B8923C]">
+            <div className="inline-flex items-center gap-2 self-start sm:self-auto px-4 py-2 rounded-full border border-gold/30 bg-gold/10">
+              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              <span className="text-sm font-medium text-gold">
                 {MIESIACE_PELNE[currentMonth - 1]} — {liczbaTeraz} {odmianaProdukt(liczbaTeraz)} dostępne
               </span>
             </div>
@@ -132,7 +132,7 @@ export default function SklepKatalog() {
       </section>
 
       {/* ── SEKCJA 2 — PANEL FILTRÓW (sticky) ── */}
-      <div className="sticky top-16 z-30 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#E7DECF]">
+      <div className="sticky top-16 z-30 bg-muted/95 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-3">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
             {/* [1] Kategoria */}
@@ -165,14 +165,14 @@ export default function SklepKatalog() {
 
               {/* Szukaj */}
               <div className="relative sm:w-56">
-                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9C9A8E]" />
+                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Szukaj produktu…"
                   aria-label="Szukaj produktu"
-                  className="w-full pl-9 pr-3 py-2 rounded-full text-sm bg-white border border-[#E7DECF] text-[#26302A] placeholder:text-[#9C9A8E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C2A34F] focus:border-[#C2A34F]"
+                  className="w-full pl-9 pr-3 py-2 rounded-full text-sm bg-card border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus:border-gold"
                 />
               </div>
             </div>
@@ -189,10 +189,10 @@ export default function SklepKatalog() {
                       key={r}
                       onClick={() => setMiesiac(m)}
                       aria-label={MIESIACE_PELNE[i]}
-                      className={`shrink-0 w-11 h-9 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C2A34F] ${
+                      className={`shrink-0 w-11 h-9 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                         miesiac === m
-                          ? 'bg-gradient-to-br from-[#CBAE5C] to-[#B8923C] text-[#241E12] shadow-lg shadow-[#C2A34F]/25'
-                          : 'bg-white text-[#6B6A5F] border border-[#E7DECF] hover:text-[#26302A] hover:border-[#C2A34F]/50'
+                          ? 'bg-gradient-to-br from-gold to-gold-deep text-[#14170F] shadow-lg shadow-gold/20'
+                          : 'bg-card text-muted-foreground border border-border hover:text-foreground hover:border-gold/40'
                       }`}
                     >
                       {r}
@@ -208,12 +208,12 @@ export default function SklepKatalog() {
       {/* ── SEKCJA 3 — SIATKA PRODUKTÓW ── */}
       <section className="py-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs text-[#6B6A5F] mb-5">
+          <p className="text-xs text-muted-foreground mb-5">
             Pokazano {widoczne.length} z {produkty.length} produktów
           </p>
 
           {widoczne.length === 0 ? (
-            <div className="py-20 text-center text-[#6B6A5F]">
+            <div className="py-20 text-center text-muted-foreground">
               Brak produktów spełniających wybrane kryteria.
             </div>
           ) : (
