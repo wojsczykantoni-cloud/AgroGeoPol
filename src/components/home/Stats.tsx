@@ -1,11 +1,12 @@
-const stats = [
-  { value: "🇬🇪", label: "Eksport z Gruzji", sub: "bezpośrednio od producenta" },
-  { value: "IQF", label: "Mrożenie indywidualne", sub: "zachowana świeżość i wartości" },
-  { value: "B2B", label: "Sprzedaż hurtowa", sub: "dla firm i dystrybutorów" },
-  { value: "❄️", label: "Własne chłodnie", sub: "całoroczna dostępność" },
-];
+"use client";
+
+import { useI18n } from "@/i18n/LanguageProvider";
+
+const values = ["🇬🇪", "IQF", "B2B", "❄️"];
 
 export default function Stats() {
+  const { t } = useI18n();
+  const stats = values.map((value, i) => ({ value, ...t.stats.items[i] }));
   return (
     <section className="py-20 bg-gradient-to-r from-muted via-card to-muted section-border-top border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

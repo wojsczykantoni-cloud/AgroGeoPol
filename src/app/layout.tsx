@@ -4,16 +4,17 @@ import { Playfair_Display, Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   display: "swap",
 });
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
   display: "swap",
 });
 
@@ -39,7 +40,15 @@ export const metadata: Metadata = {
     "AgroGeoPol",
   ],
   authors: [{ name: "AgroGeoPol Ltd" }],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    languages: {
+      pl: "/",
+      en: "/",
+      ru: "/",
+      "x-default": "/",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "pl_PL",
@@ -90,9 +99,11 @@ export default function RootLayout({
         <Script id="theme-init" strategy="beforeInteractive">
           {themeInit}
         </Script>
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

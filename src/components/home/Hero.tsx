@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Phone } from 'lucide-react';
+import { useI18n } from '@/i18n/LanguageProvider';
 
 export default function Hero() {
+  const { t } = useI18n();
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -42,15 +44,15 @@ export default function Hero() {
       <div className="relative z-20 container mx-auto px-4 flex flex-col items-center text-center mt-16">
         {/* Heading */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white font-serif mb-6 leading-tight animate-fade-in" style={{ animationDelay: '300ms' }}>
-          Smak Kaukazu
+          {t.hero.title1}
           <span className="block font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-[#8DC432] to-[#D4AF61]">
-            prosto do Twojej firmy.
+            {t.hero.title2}
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-base md:text-lg text-gray-300 mb-10 animate-fade-in max-w-xl" style={{ animationDelay: '500ms' }}>
-          Hurtowe dostawy świeżych i mrożonych owoców oraz warzyw dla hurtowni, przetwórni i restauracji w Polsce i UE.
+          {t.hero.subtitle}
         </p>
 
         {/* CTAs */}
@@ -59,13 +61,13 @@ export default function Hero() {
             href="/sklep"
             className="px-8 py-4 bg-gradient-to-r from-[#D4AF61] to-[#B8923C] text-[#0D100B] font-semibold rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105"
           >
-            Przeglądaj ofertę
+            {t.hero.ctaOffer}
           </Link>
           <Link
             href="/kontakt"
             className="px-8 py-4 bg-transparent border border-[#8DC432] text-[#8DC432] font-semibold rounded-lg hover:bg-[#8DC432]/10 transition-all duration-300 backdrop-blur-sm"
           >
-            Skontaktuj się
+            {t.hero.ctaContact}
           </Link>
         </div>
       </div>
@@ -81,7 +83,7 @@ export default function Hero() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer">
               <MapPin size={16} className="text-[#8DC432]" />
-              <span>Gruzja / Dostawy do Polski i UE</span>
+              <span>{t.hero.stripLocation}</span>
             </div>
             <div className="w-px h-4 bg-white/20"></div>
             <a href="tel:+995555568302" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -90,7 +92,7 @@ export default function Hero() {
             </a>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-gray-500 text-xs">Jakość gwarantowana przez AgroGeoPol Ltd</span>
+            <span className="text-gray-500 text-xs">{t.hero.stripQuality}</span>
           </div>
         </div>
       </div>

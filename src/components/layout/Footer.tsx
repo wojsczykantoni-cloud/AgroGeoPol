@@ -1,15 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Globe, Share2 } from "lucide-react";
+import { useI18n } from "@/i18n/LanguageProvider";
 
 const navLinks = [
-  { href: "/", label: "Strona główna" },
-  { href: "/o-nas", label: "O nas" },
-  { href: "/sklep", label: "Sklep" },
-  { href: "/galeria", label: "Galeria" },
-  { href: "/kontakt", label: "Kontakt" },
-];
+  { href: "/", key: "home" },
+  { href: "/o-nas", key: "about" },
+  { href: "/sklep", key: "shop" },
+  { href: "/galeria", key: "gallery" },
+  { href: "/kontakt", key: "contact" },
+] as const;
 
 export default function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="bg-background mt-auto border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
@@ -23,7 +27,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-white">AgroGeoPol Ltd</span>
             </Link>
             <p className="text-sm text-gray-500 leading-relaxed mb-5">
-              Eksport świeżych i mrożonych owoców oraz warzyw z Gruzji. Własne chłodnie, mrożenie IQF, dostawy hurtowe.
+              {t.footer.brandDesc}
             </p>
             <div className="flex gap-3">
               <a href="#" className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-gray-500 hover:text-gold hover:border-gold transition-colors" aria-label="Facebook">
@@ -37,12 +41,12 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Nawigacja</h3>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">{t.footer.navHeading}</h3>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-gray-500 hover:text-gold transition-colors">
-                    {link.label}
+                    {t.nav[link.key]}
                   </Link>
                 </li>
               ))}
@@ -51,11 +55,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Kontakt</h3>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">{t.footer.contactHeading}</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm text-gray-500">
                 <MapPin size={16} className="text-secondary mt-0.5 shrink-0" />
-                <span>Placeholder adres,<br />Polska</span>
+                <span>{t.footer.addressLine1}<br />{t.footer.addressLine2}</span>
               </li>
               <li className="flex items-center text-gray-500">
                 <Phone size={16} className="mr-3 text-gold shrink-0" />
@@ -73,7 +77,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-gray-600">
-            © {new Date().getFullYear()} AgroGeoPol Ltd. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} AgroGeoPol Ltd. {t.footer.rights}
           </p>
         </div>
       </div>

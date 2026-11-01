@@ -2,52 +2,32 @@
 
 import { Thermometer, Apple, Snowflake } from "lucide-react";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
+import { useI18n } from "@/i18n/LanguageProvider";
 
-const offerings = [
-  {
-    icon: Apple,
-    tag: "Główna oferta",
-    title: "Świeże owoce i warzywa",
-    description:
-      "Śliwki, brzoskwinie, wiśnie, jabłka, gruszki, pomidory, papryka — sezonowe produkty prosto z Gruzji. Dostawy hurtowe do Polski i UE.",
-    points: ["Owoce sezonowe", "Warzywa świeże", "Dostawy hurtowe", "Eksport bezpośredni"],
-    color: "#8DC432",
-  },
-  {
-    icon: Snowflake,
-    tag: "Główna oferta",
-    title: "Mrożonki IQF",
-    description:
-      "Indywidualnie mrożone owoce i warzywa: truskawki, wiśnie, śliwki, maliny, fasolka szparagowa, groszek, kukurydza. Zachowana świeżość i wartości odżywcze.",
-    points: ["Mrożenie IQF", "Truskawki, wiśnie, maliny", "Fasolka, groszek, kukurydza", "Skala hurtowa"],
-    color: "#4A9EC9",
-  },
-  {
-    icon: Thermometer,
-    tag: "Dodatkowo",
-    title: "Hodowla ślimaków",
-    description:
-      "Uzupełnieniem naszej oferty są mrożone ślimaki i filet ze ślimaków, przeznaczone na eksport. Hodowla prowadzona w kontrolowanych warunkach, wysoka jakość.",
-    points: ["Mrożone ślimaki", "Filet ze ślimaków", "Eksport", "Produkt uzupełniający"],
-    color: "#D4AF61",
-  },
+// Ikony i kolory zostają w komponencie; teksty pochodzą ze słownika (t.offerings.cards).
+const cardMeta = [
+  { icon: Apple, color: "#8DC432" },
+  { icon: Snowflake, color: "#4A9EC9" },
+  { icon: Thermometer, color: "#D4AF61" },
 ];
 
 export default function Offerings() {
+  const { t } = useI18n();
+  const offerings = cardMeta.map((meta, i) => ({ ...meta, ...t.offerings.cards[i] }));
   return (
     <section className="py-24 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-gold uppercase tracking-widest mb-3">
-            Co oferujemy
+            {t.offerings.tag}
           </p>
           <h2 className="text-3xl md:text-5xl font-light text-foreground leading-tight font-serif mb-4">
-            Trzy kategorie,{" "}
-            <span className="text-gold italic font-normal">jedno źródło</span>
+            {t.offerings.title}{" "}
+            <span className="text-gold italic font-normal">{t.offerings.titleAccent}</span>
           </h2>
           <p className="max-w-xl mx-auto text-muted-foreground text-base leading-relaxed">
-            Gruzja ma wyjątkowy klimat — korzystamy z tego w pełni. Każda kategoria to osobna linia dostawy, osobna jakość kontroli.
+            {t.offerings.subtitle}
           </p>
         </div>
 

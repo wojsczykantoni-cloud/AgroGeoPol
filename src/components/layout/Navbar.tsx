@@ -6,18 +6,21 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useI18n } from "@/i18n/LanguageProvider";
 
 const links = [
-  { href: "/", label: "Strona główna" },
-  { href: "/o-nas", label: "O nas" },
-  { href: "/sklep", label: "Sklep" },
-  { href: "/galeria", label: "Galeria" },
-];
+  { href: "/", key: "home" },
+  { href: "/o-nas", key: "about" },
+  { href: "/sklep", key: "shop" },
+  { href: "/galeria", key: "gallery" },
+] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { t } = useI18n();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -83,20 +86,22 @@ export default function Navbar() {
                     : linkIdle
                 }`}
               >
-                {link.label}
+                {t.nav[link.key]}
               </Link>
             ))}
+            <LanguageSwitcher overHero={overHero} />
             <ThemeToggle overHero={overHero} />
             <Link
               href="/kontakt"
               className="ml-2 px-5 py-2 rounded-md text-sm font-semibold btn-gold"
             >
-              Zamów teraz
+              {t.nav.orderNow}
             </Link>
           </nav>
 
-          {/* Mobile: przełącznik + hamburger */}
+          {/* Mobile: język + motyw + hamburger */}
           <div className="flex items-center gap-1 md:hidden">
+            <LanguageSwitcher overHero={overHero} />
             <ThemeToggle overHero={overHero} />
             <button
               className={`p-2 rounded-md transition-colors ${iconBtn}`}
@@ -126,14 +131,14 @@ export default function Navbar() {
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
               }`}
             >
-              {link.label}
+              {t.nav[link.key]}
             </Link>
           ))}
           <Link
             href="/kontakt"
             className="block mt-3 px-4 py-3 rounded-md text-sm font-semibold text-center btn-gold"
           >
-            Zamów teraz
+            {t.nav.orderNow}
           </Link>
         </div>
       </div>
